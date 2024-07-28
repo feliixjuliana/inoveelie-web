@@ -1,41 +1,95 @@
-.corpinhodahome {
+
+.corpinhodapagina {
   background-color: #F1DFCD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  padding: 0; 
 }
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  background: linear-gradient(to bottom, #eda9b1, #F1DFCD);
+  width: 100%; 
+  padding: 20px 40px; 
+}
+
+.direcaoteladecadastro{
+      border-radius: 24px;
+      border: none;
+      padding:15px;
+      background-color: #fffcfa; 
+      font-size: 16px; 
+      transition: background-color 0.10s ease, color 0.10s ease;
+      cursor: pointer; 
+
+      &:hover{ 
+      background-color: #ee7987; 
+      color: rgb(255, 255, 255);
+      
+    
+    }
+
+  }
+
+  .textcadast{
+    font-family: monospace !important;
+    color: #f3acb4 ;
+    transition: background-color 0.10s ease, color 0.10s ease;
+
+    &:hover{ 
+      
+      color: rgb(255, 255, 255);
+    
+    }
+  }
+
 
 
 .menuopcoes {
   display: flex;
-  justify-content: left;
-  background: linear-gradient(to bottom, #eda9b1, #F1DFCD);
-  padding-top: 18px;
-  padding-bottom: 90px;
-  padding-left: 15px;
-  padding-right: 10px;
+  justify-content: center;
+
+  
+  
 }
 
-.menuopcoes button {
-  font-family: Courier New, monospace;
+.navega {
+  font-family: monospace;
   color: #e78f99;
-  letter-spacing: 2px;
-  cursor: pointer;
-  border: 0;
   background-color: #ffffffc3;
-  transition: color 0.35s ease-in-out, background-color 0.70s ease-in-out, border-color 0.35s ease-in-out;
-  border-radius: 11px;
-  height: 30px;
-  margin-left: 30px;
+  border-radius: 20px;
+  margin-left: 25px;
+  cursor: pointer;
+  padding: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+
+  &:hover{
+    color: #ffffff;
+    background-color: #ee7987;
+    transition: all 800ms;
+    
+  }
+  
 }
+
 
 .logininicioelogo {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
 }
 
 .colunadalogo {
-  padding-top: 30px;
-  padding-bottom: 50px;
-  padding-left: 20px;
-  padding-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,6 +109,37 @@
   border-radius: 25px;
 }
 
+.coluna input {
+  background-color: #d895a2 !important;
+  color: #fffcfa !important;
+  font-size: 15px !important;
+  font-family: monospace !important;
+  border-radius: 10px !important;
+  border: 2px solid #ffffff !important;
+}
+
+.coluna input::placeholder {
+  color: #fffcfa !important;
+  opacity: 1 !important;
+  font-family: monospace !important;
+}
+
+.Esqueceu{
+  margin-bottom: 30px !important;
+  font-size: 10px !important;
+}
+
+.coluna p{
+  font-size: 16px !important;
+  font-family: monospace !important;
+  margin-bottom: 0%;
+}
+
+
+
+
+
+
 .logo1 {
   background-image: url("../public/Logofigmasemfundo.jpg");
   height: 300px;
@@ -65,20 +150,20 @@
   text-indent: -999999em;
 }
 
-.corpomenor p {
-  font-family: inter;
+.corpinhodapagina p {
+  font-family: monospace !important;
   color: #E78F99;
   font-size: 17px;
 }
 
-.corpomenor h1 {
-  font-family: monospace;
+.corpinhodapagina h1 {
+  font-family: monospace !important;
   color: #E78F99;
   font-size: 30px;
 }
 
-.corpomenor h2 {
-  font-family: monospace;
+.corpinhodapagina h2 {
+  font-family: monospace !important;
   color: #E78F99;
   font-size: 30px;
 }
@@ -163,3 +248,20 @@
 .planos{
   padding-bottom: 15px;
 }
+
+.corpinhodocadastro{
+  background-color: #E78F99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%; 
+}
+
+.containerbranco {
+  text-align: center; 
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 15px;
+}
+

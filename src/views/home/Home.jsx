@@ -1,25 +1,26 @@
 import React from "react";
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
 
 export default function Home () {
 
    return(
-    <body className="corpinhodahome">
         
+       <div className="corpinhodapagina">
 
-       <div className="corpomenor">
+            <header className="topo">
+              <div className="menuopcoes">
+                <nav className="navega"> <a href="#produto"><p className="textcadast">Sobre Nós</p></a></nav>
+                <nav className="navega"> <a href="#assinatura"><p className="textcadast">Assinatura</p></a></nav>
+              </div>
 
-              <container className="menuopcoes">
-                <form method="get" action=".produto"
-               ><button type="submit" class="produ">Produto</button></form>
+               <button className="direcaoteladecadastro">
+               <Link to={'/cadastro-usuario'}> <p className="textcadast">Cadastre-se Aqui</p></Link>
+               </button>
+              
+              </header> 
 
-                <form method="get" action=".a">
-                <button type="submit" className="assin">Assinatura</button>
-                </form>
-              </container>
-
-
-               <Container className="logininicíoelogo">
+               <div className="logininicíoelogo">
                    <Grid columns={2}>
                        <Grid.Row>
                            <div className="colunadalogo">
@@ -34,36 +35,39 @@ export default function Home () {
 
                                 <h2>Login</h2>
                              
-                                <p>Digite seu E-mail</p>
-                                <Input
+                                <div className="input-container">
+                                    <p>Digite seu E-mail</p>
+                                    <Input
                                     fluid
-                                    placeholder='Digite seu E-mail'
-                                    
-                                />
+                                    placeholder='E-mail'
+                                    />
+                                </div>
 
-
-                                <p>Digite sua senha</p>
-                                <Input
+                                <div className="input-container">
+                                    <p>Digite sua Senha</p>
+                                    <Input
                                     fluid
-
-                                    placeholder='Digite sua senha'
-                                    
-                                />
+                                    placeholder='Senha'
+                                    />
+                                </div>
 
                               <p className="Esqueceu"> Esqueceu a Senha?</p>
 
 
                               <Button >Entrar</Button>
                               <Button >Entrar Com o Google</Button>
-                              <Button >Criar Conta</Button>
+                              <Button > 
+                                <Link to={'/cadastro-usuario'}> Cadastre-se Aqui
+                                </Link>
+                                </Button>
                                
 
                            </div>
                        </Grid.Row>
                    </Grid>
-               </Container>
+               </div>
 
-               <div className="produto">
+               <div className="produto" id="produto">
 
                 
                 <h1 className="ph">
@@ -101,7 +105,7 @@ export default function Home () {
 
 
 
-            <container className="assinatura">
+            <container className="assinatura" id="assinatura">
                 <h1 className="tituloassinaturas">
                     Assinaturas
                 </h1>
@@ -141,6 +145,6 @@ export default function Home () {
             </container>
 
            </div>
-    </body>
    )
 }
+
