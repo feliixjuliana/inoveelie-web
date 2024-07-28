@@ -65,7 +65,7 @@ export default function Home () {
 
                <div className="produto">
 
-                <div className="gradiente2">
+                
                 <h1 className="ph">
                     Saiba Mais Sobre Nós
                 </h1>
@@ -73,7 +73,7 @@ export default function Home () {
                 <p className="pi">
                     Nós sabemos que está complicado organizar a agenda do ateliê, assim como saber quais pedidos estão próximos ou não. Pior ainda!! Será que você ainda tem aquele material?? Complicado, certo? Porém, com a Inove Eliê você tem a solução disso tudo com apenas alguns clicks. Trazendo tecnologia para seu ateliê, além de facilitar seu trabalho e organização.Somos uma empresa especializada em inovação, por isso trouxemos alguns recursos gratuitos para você!
                 </p>
-                </div>
+                
 
                 <Grid className="cardsdeassinatura" columns={3}>
                 <Grid.Row>
@@ -102,7 +102,7 @@ export default function Home () {
 
 
             <container className="assinatura">
-                <h1 className="a">
+                <h1 className="tituloassinaturas">
                     Assinaturas
                 </h1>
                 <p className="atexto">
@@ -114,7 +114,7 @@ export default function Home () {
                            <Grid.Column>
 
                              <div className="planomensall">
-                               <h1 className="assinatura">
+                               <h1 className="assin">
                                 Plano Mensal
                                </h1>
                                <p className="planos">
@@ -127,7 +127,7 @@ export default function Home () {
                            <Grid.Column>
                                 
                             <div className="planoanual">
-                               <h1 className="assinatura">
+                               <h1 className="assin">
                                 Plano Anual
                                </h1>
                                <p className="planos">

@@ -2,15 +2,6 @@
   background-color: #F1DFCD;
 }
 
-.produto, .assinatura {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 50px;
-  padding-left: 15px;
-  padding-right: 10px;
-}
 
 .menuopcoes {
   display: flex;
@@ -32,7 +23,6 @@
   transition: color 0.35s ease-in-out, background-color 0.70s ease-in-out, border-color 0.35s ease-in-out;
   border-radius: 11px;
   height: 30px;
-  width: 60px;
   margin-left: 30px;
 }
 
@@ -93,7 +83,7 @@
   font-size: 30px;
 }
 
-.pi {
+.pi, .atexto {
   font-size: 20px;
   font-family: monospace;
   font-size: 22px !important;
@@ -114,43 +104,13 @@
   margin-bottom: 10px !important;
 }
 
-.assinatura {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.planomensall, .planoanual {
-  background-color: white;
-  max-width: 300px;
-  max-height: 330px;
-  padding-left: 20px;
-  padding-top: 5px;
+.ph, .tituloassinaturas {
+  
+  font-size: 45px !important;
   padding-bottom: 20px;
   padding-right: 20px;
-  border-radius: 25px;
 }
 
-.planoanual {
-  margin-left: 50px;
-}
-
-.ph {
-  background: linear-gradient(to bottom, #F1DFCD, #ebc4c879, #F1DFCD);
-  display: flex;
-  flex-direction: column-reverse;
-  padding-top: 100px;
-  padding-bottom: 50px;
-  font-size: 40px !important;
-}
-
-.gradiente2{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .produtinhos, .produtinhoss, .produtinhosss {
   background-color: #F1DFCD !important;
@@ -166,4 +126,40 @@
   align-items: center;
   margin-right: 20px;
   
+}
+
+.produto, .assinatura {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+.planomensall, .planoanual {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  max-height: 330px;
+  padding-left: 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  border-radius: 25px;
+}
+
+.planoanual {
+  margin-left: 50px;
+}
+
+.planos{
+  padding-bottom: 15px;
 }
