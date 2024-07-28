@@ -10,7 +10,7 @@ function App() {
       
       <Rotas />
 
-      <div style={{marginTop: '6%'}}>
+      <div className='rodape'>
         <Segment vertical color='grey' size='tiny' textAlign='center'>
           &copy; 2024 - Inove Elie
         </Segment>

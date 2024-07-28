@@ -1,38 +1,169 @@
-.App {
-  text-align: center;
+.corpinhodahome {
+  background-color: #F1DFCD;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.produto, .assinatura {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding-bottom: 50px;
+  padding-left: 15px;
+  padding-right: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.menuopcoes {
+  display: flex;
+  justify-content: left;
+  background: linear-gradient(to bottom, #eda9b1, #F1DFCD);
+  padding-top: 18px;
+  padding-bottom: 90px;
+  padding-left: 15px;
+  padding-right: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menuopcoes button {
+  font-family: Courier New, monospace;
+  color: #e78f99;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border: 0;
+  background-color: #ffffffc3;
+  transition: color 0.35s ease-in-out, background-color 0.70s ease-in-out, border-color 0.35s ease-in-out;
+  border-radius: 11px;
+  height: 30px;
+  width: 60px;
+  margin-left: 30px;
+}
+
+.logininicioelogo {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.colunadalogo {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.coluna {
+  margin-top: 30px;
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(250, 250, 250, 0.886);
+  padding-left: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-right: 50px;
+  border-radius: 25px;
+}
+
+.logo1 {
+  background-image: url("../public/Logofigmasemfundo.jpg");
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-indent: -999999em;
+}
+
+.corpomenor p {
+  font-family: inter;
+  color: #E78F99;
+  font-size: 17px;
+}
+
+.corpomenor h1 {
+  font-family: monospace;
+  color: #E78F99;
+  font-size: 30px;
+}
+
+.corpomenor h2 {
+  font-family: monospace;
+  color: #E78F99;
+  font-size: 30px;
+}
+
+.pi {
+  font-size: 20px;
+  font-family: monospace;
+  font-size: 22px !important;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.rodape {
+  background-color: #e78f999c;
+}
+
+.coluna button {
+  background-color: #E78F99 !important;
+  color: #fff !important;
+  border: none;
+  margin-bottom: 10px !important;
+}
+
+.assinatura {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.planomensall, .planoanual {
+  background-color: white;
+  max-width: 300px;
+  max-height: 330px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  border-radius: 25px;
+}
+
+.planoanual {
+  margin-left: 50px;
+}
+
+.ph {
+  background: linear-gradient(to bottom, #F1DFCD, #ebc4c879, #F1DFCD);
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  font-size: 40px !important;
+}
+
+.gradiente2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.produtinhos, .produtinhoss, .produtinhosss {
+  background-color: #F1DFCD !important;
+  border: 2px solid #E78F99 !important;
+  border-radius: 200px !important;
+  padding-left: 50px;
+  padding-top: 95px;
+  padding-bottom: 95px;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  
 }
