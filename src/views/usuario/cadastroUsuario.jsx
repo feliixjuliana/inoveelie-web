@@ -7,46 +7,52 @@ export default function CadastroUsuario() {
     <div className="corpinhodocadastro">
 
       <div className="containerbranco">
-                        
-
-                        <h2>Cadastre-se Aqui!!</h2>
-                     
-                        <div className="input-container">
-                            <p>Digite seu E-mail</p>
-                            <Input
-                            fluid
-                            placeholder='E-mail'
-                            />
-                        </div>
-
-                        <div className="input-container">
-                            <p>Digite sua Senha</p>
-                            <Input
-                            fluid
-                            placeholder='Senha'
-                            />
-                        </div>
-
-                        <div className="input-container">
-                            <p>Repita a Senha:</p>
-                            <Input
-                            fluid
-                            placeholder='Senha'
-                            />
-                        </div>
 
 
-                        <div className="botoesdenaveg">
-                        <Button >Entrar</Button>
-                            <Button > 
-                                <Link to={'/'}> Voltar
-                                </Link>
-                            </Button>
+        <h2>  Cadastre-se  </h2>
 
-                        </div>
-                     
+        <div className="inputcontainers">
+          <div className="input-container">
+            <p>Digite seu E-mail:</p>
+            <Input
+              fluid
+              placeholder='E-mail'
+            />
+          </div>
+
+          <div className="input-container">
+            <p>Digite sua Senha:</p>
+            <Input
+              fluid
+              type="password"
+              placeholder='Senha'
+            />
+          </div>
+
+          <div className="input-container">
+            <p>Repita a Senha:</p>
+            <Input
+              fluid
+              type="password"
+              placeholder='Senha'
+            />
+          </div>
+
+        </div>
+
+
+        <div className="botoesdenaveg">
+          <Button className="botaoentrar">Entrar</Button>
+          <Link to={'/'}>
+            <Button className="botaovoltar">
+              Voltar
+            </Button>
+          </Link>
+
+        </div>
+
       </div>
-    
+
     </div>
   );
 }
