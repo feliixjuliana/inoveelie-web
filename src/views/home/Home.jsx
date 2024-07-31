@@ -62,12 +62,6 @@ export default function Home() {
                             <div className="areadosbotoeslogin">
                                 <Button >Entrar</Button>
                                 <Button >Entrar Com o Google</Button>
-
-                                <Link to={'/cadastro-usuario'}>
-                                    <Button >
-                                        Cadastre-se Aqui
-                                    </Button>
-                                </Link>
                             </div>
 
 
