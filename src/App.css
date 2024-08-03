@@ -1,6 +1,5 @@
 /**************** Tela Home ******************/
 
-
 .corpinhodapagina {
   background-color: #F1DFCD;
   display: flex;
@@ -391,4 +390,105 @@
 
 
 
+  /******************* Corpo da Home *****************/
 
+
+  .homeUsuario {
+    background-color: #F1DFCD;
+    background-image: url("../public/papeldatelainicial.png");
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center; 
+    image-rendering: crisp-edges; 
+    image-rendering: pixelated;
+    animation: fadeIn s ease-in-out forwards;
+    display: block !important;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%; 
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+
+  }
+
+  .rodapedoperfil {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    padding: 25px;
+    width: 100% ;
+  }
+  
+  .rodapedoperfil FormSelect {
+    background-color: #e78f9900 !important;
+  }
+
+  .gradescolun{
+    width: 100% !important;
+  }
+
+  .botoesderota{
+    width: 100%;
+    display: block !important;
+    align-items: center !important;
+    padding: 50px;
+
+  }
+
+  .botoesderota button{
+    display: block !important;
+    align-items: center !important;
+    margin: 10px auto !important;
+    border-radius: 24px ;
+    border: none;
+    padding: 30px;
+    background-color: #fffcfa; 
+    color: #f3acb4 ;
+    font-size: 30px; 
+    transition: background-color 0.10s ease, color 0.10s ease;
+    cursor: pointer; 
+    font-family: monospace !important;
+
+
+
+
+    &:hover{ 
+    background-color: #ee7987; 
+    color: rgb(255, 255, 255);
+    font-family: monospace !important;
+    
+  
+  }
+  }
+
+
+
+  .listadepedidos{
+    background-color: #ffffff;
+    margin: 25px;
+    border-radius: 6px;
+    width: 100%;
+  }
+
+
+
+  /******************* Corpo da tela de cadastro de materiais *****************/
+
+.Form-container{
+  background-color: #d895a2 !important;
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-family: monospace !important;
+  border-radius: 10px !important;
+  border: 2px solid #ffffff !important;
+  margin-top: 0;
+}
