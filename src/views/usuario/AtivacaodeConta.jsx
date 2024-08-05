@@ -11,31 +11,15 @@ export default function CadastroUsuario() {
           <div className="containerbranco">
     
     
-            <h2>  Novo Material </h2>
+            <h2>  Confirme o Código </h2>
     
             <div className="inputcontainers">
               <div className="input-container">
-                <p>Nome do Material: </p>
+                <p> </p>
                 <Input
                   fluid
-                  placeholder='Nome'
-                />
-              </div>
-    
-              <div className="Form-container">
-                <p>Descrição do Material</p>
-                <Input
-                  fluid
-                  placeholder='Descrição'
-                />
-              </div>
-    
-              <div className="input-container">
-                <p>Repita a Senha:</p>
-                <Input
-                  fluid
-                  type="password"
-                  placeholder='Senha'
+                  placeholder='Código'
+                  
                 />
               </div>
     
@@ -45,10 +29,10 @@ export default function CadastroUsuario() {
             <div className="botoesdenaveg">
               <Button className="botaoentrar"      
               >
-                Salvar
+                Confirmar
     
               </Button>
-              <Link to={'/List-Materiais'}>
+              <Link to={'/'}>
                 <Button className="botaovoltar">
                   Voltar
                 </Button>

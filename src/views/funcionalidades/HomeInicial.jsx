@@ -8,8 +8,6 @@ const options = [
     { key: 'Sair', value: 'Sair', text: 'Sair' }
 ]
 
-navigate("/List-Materiais", { state: { key: "listademateriais", value: 'listademateriais' } });
-
 export default function HomeInicial() {
 
     const navegando = useNavigate();
@@ -45,7 +43,7 @@ export default function HomeInicial() {
                             <div className="botoesderota">
 
                                 <button className="pedidos"
-                                value={listademateriais}>
+                                value>
                                     Cadastro de pedidos
 
                                 </button>

@@ -41,7 +41,7 @@ export default function Home() {
                             <h2>Login</h2>
 
                             <div className="input-container">
-                                <p>Digite seu E-mail</p>
+                                <p>Digite seu:</p>
                                 <Input
                                     fluid
                                     placeholder='E-mail'
@@ -49,7 +49,7 @@ export default function Home() {
                             </div>
 
                             <div className="input-container">
-                                <p>Digite sua Senha</p>
+                                <p>Digite sua:</p>
                                 <Input
                                     type="password"
                                     fluid
@@ -57,7 +57,10 @@ export default function Home() {
                                 />
                             </div>
 
-                            <p className="Esqueceu"> Esqueceu a Senha?</p>
+                            <Link to={'/Esqueceu-Email'}>
+                            <p className="Esqueceu"> 
+                                
+                                Esqueceu a Senha?</p></Link>
 
                             <div className="areadosbotoeslogin">
                                 <Button >Entrar</Button>
