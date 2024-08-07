@@ -11,30 +11,30 @@ export default function CadastroUsuario() {
           <div className="containerbranco">
     
     
-            <h2>  Novo Material </h2>
+            <h2>  Editar Informações </h2>
     
             <div className="inputcontainers">
               <div className="input-container">
-                <p>Nome do Material: </p>
+                <p>Nome: </p>
                 <Input
                   fluid
-                  placeholder='Nome'
+                  placeholder
                 />
               </div>
     
-              <div className="Form-container">
-                <p>Descrição do Material:</p>
+              <div className="input-container">
+                <p>Sobrenome:</p>
                 <Input
                   fluid
-                  placeholder='Descrição'
+                  placeholder
                 />
               </div>
     
-              <div className="input-containerquantidade">
-                <p className="quant">Quantidade:</p>
-                <Input className="inputquant"
+              <div className="input-container">
+                <p>Email: </p>
+                <Input 
                   fluid
-                  placeholder='Metros'
+                  placeholder
                 />
               </div>
     
@@ -44,10 +44,10 @@ export default function CadastroUsuario() {
             <div className="botoesdenaveg">
               <Button className="botaoentrar"      
               >
-                Salvar
+                Salvar Edição
     
               </Button>
-              <Link to={'/List-Materiais'}>
+              <Link to={'/'}>
                 <Button className="botaovoltar">
                   Voltar
                 </Button>

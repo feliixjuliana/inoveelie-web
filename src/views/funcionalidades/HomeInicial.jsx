@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input } from 'semantic-ui-react';
 
 const options = [
-    { key: 'Editar Perfil', value: 'Editar Perfil', text: 'Editar Perfil' },
+    { key: 'editarPerfil', value: 'editarPerfil', text: 'Editar Perfil' },
     { key: 'Sair', value: 'Sair', text: 'Sair' }
 ]
 
@@ -14,7 +14,7 @@ export default function HomeInicial() {
 
     const handleChange = (e, { value }) => {
         if (value === 'editarPerfil') {
-            navegando('/editar-perfil');
+            navegando('/Edit-Infor');
         } else {
             navegando('/');
         };

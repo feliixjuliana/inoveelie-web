@@ -9,6 +9,7 @@ import AtivacaoConta from './views/usuario/AtivacaodeConta';
 import EsqueceuSenha from './views/usuario/EsqueceuSenhaEmail';
 import SenhaRecuperar from './views/usuario/CodigoRecuperar';
 import SenhaNova from './views/usuario/SenhaNova';
+import EditarInfor from './views/usuario/EditarInformacoes';
 
 
 
@@ -25,6 +26,8 @@ function Rotas() {
                 <Route path='/Esqueceu-Email' element={ <EsqueceuSenha/> } />
                 <Route path='/Codigo-Recup' element={ <SenhaRecuperar/> } />
                 <Route path='/Senha-Nova' element={ <SenhaNova/> } />
+                <Route path='/Edit-Infor' element={ <EditarInfor/> } />
+
 
             </Routes>
         </>
