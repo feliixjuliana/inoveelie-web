@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import InputMask from "react-input-mask";
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
 
-export default function FormMateriais() {
+export default function FormCliente() {
 
     return (
         <div className="corpinhodocadastro">
@@ -11,11 +12,11 @@ export default function FormMateriais() {
           <div className="containerbranco">
     
     
-            <h2>  Novo Material </h2>
+            <h2>  Adicione o Cliente </h2>
     
             <div className="inputcontainers">
               <div className="input-container">
-                <p>Nome do Material: </p>
+                <p>Nome: </p>
                 <Input
                   fluid
                   placeholder='Nome'
@@ -23,19 +24,15 @@ export default function FormMateriais() {
               </div>
     
               <div className="Form-container">
-                <p>Descrição do Material:</p>
+                <p>Número: </p>
                 <Input
                   fluid
-                  placeholder='Descrição'
-                />
-              </div>
-    
-              <div className="input-containerquantidade">
-                <p className="quant">Quantidade:</p>
-                <Input className="inputquant"
-                  fluid
-                  placeholder='Metros'
-                />
+                                  >
+                  <InputMask
+                  mask="(99)9 9999-9999"
+                  placeholder= '(00)0 0000-0000'
+                  />
+              </Input>
               </div>
     
             </div>
@@ -47,7 +44,7 @@ export default function FormMateriais() {
                 Salvar
     
               </Button>
-              <Link to={'/List-Materiais'}>
+              <Link to={'/'}>
                 <Button className="botaovoltar">
                   Voltar
                 </Button>

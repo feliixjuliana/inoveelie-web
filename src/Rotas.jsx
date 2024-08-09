@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import Home from './views/home/Home';
-import CadastroUsuario from './views/usuario/CadastroUsuario';
+import CadastroUsuario from './views/usuario/cadastroUsuario';
 import HomeInicial from './views/funcionalidades/HomeInicial';
 import FormMateriais from './views/materiais/FormMateriais';
 import ListMateriais from './views/materiais/ListMateriais';
@@ -10,6 +10,7 @@ import EsqueceuSenha from './views/usuario/EsqueceuSenhaEmail';
 import SenhaRecuperar from './views/usuario/CodigoRecuperar';
 import SenhaNova from './views/usuario/SenhaNova';
 import EditarInfor from './views/usuario/EditarInformacoes';
+import FormCliente from './views/cliente/FormCliente';
 
 
 
@@ -27,6 +28,7 @@ function Rotas() {
                 <Route path='/Codigo-Recup' element={ <SenhaRecuperar/> } />
                 <Route path='/Senha-Nova' element={ <SenhaNova/> } />
                 <Route path='/Edit-Infor' element={ <EditarInfor/> } />
+                <Route path='/Form-Cliente' element={ <FormCliente/> } />
 
 
             </Routes>
