@@ -510,3 +510,104 @@
       width: 100%; 
       animation: fadeIn 1s ease-in-out forwards;
     }
+
+    /******************* Corpo da Tela de Pedidos *****************/
+
+    .corpinhodapaginape {
+      background-color: #F1DFCD;
+      background-image: url("../public/papeldatelainicial.png");
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      justify-content: center;
+      align-items: center;
+      width: 100%; 
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .containerbrancope h1 {
+      font-family: monospace !important;
+      color: #E78F99; 
+    }
+
+    .containerbrancope {
+      text-align: center; 
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      margin-top: 25px !important;
+      margin-bottom: 25px !important;
+    }
+    
+    .containerbrancope h2 {
+      font-family: monospace !important;
+      color: #E78F99;
+      font-size: 30px;
+    }
+    
+    .containerbrancope input{
+      background-color: #d895a2 !important;
+      color: #ffffff !important;
+      font-size: 15px !important;
+      font-family: monospace !important;
+      border-radius: 10px !important;
+      border: 2px solid #ffffff !important;
+      margin-top: 0;
+      width: 100% !important; 
+      height: 40px;  
+      padding: 10px; 
+    }
+    
+    .containerbrancope p{
+      margin-bottom: 0;
+      margin-top: 20px;
+      align-items: left;
+      font-family: monospace;
+      color: #d895a2;
+    }
+    
+    .containerbrancope button {
+      background-color: #E78F99 !important;
+      color: #fff !important;
+      border: none;
+      cursor: pointer;
+      justify-content: space-around !important;
+      margin-right: 25px !important;
+      padding: 15px !important;
+    
+      &:hover{
+        background-color: #f8e2e5 !important;
+        color: #E78F99 !important;
+      }
+    
+    }
+
+    .quantidade{
+      display: flex;
+      margin-top: 15px;
+    }
+
+    .botaoConf{
+      border-radius: 20px !important;
+    }
+
+    .inputquant {
+      margin-right: 20px !important;
+    }
+
+        /******************* Corpo da Tela de Materiais *****************/
+
+        .corpinhodapaginama {
+          background-color: #F1DFCD;
+          background-image: url("../public/papeldatelainicial.png");
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          width: 100%; 
+          animation: fadeIn 1s ease-in-out forwards;
+        }

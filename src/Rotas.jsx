@@ -12,6 +12,8 @@ import SenhaNova from './views/usuario/SenhaNova';
 import EditarInfor from './views/usuario/EditarInformacoes';
 import FormCliente from './views/cliente/FormCliente';
 import ListCliente from './views/cliente/ListCliente';
+import FormPedidos from './views/pedidos/tela1';
+import FormPedidoMateriais from './views/pedidos/tela2';
 
 
 
@@ -31,6 +33,10 @@ function Rotas() {
                 <Route path='/List-Cliente' element={ <ListCliente/> } />
                 <Route path='/Form-Materiais' element={ <FormMateriais/> } />
                 <Route path='/List-Materiais' element={ <ListMateriais/> } />
+                <Route path='/Form-Pedidos' element={ <FormPedidos/> } />
+                <Route path='/Form-P-Materiais' element={ <FormPedidoMateriais/> } />
+
+
 
 
             </Routes>

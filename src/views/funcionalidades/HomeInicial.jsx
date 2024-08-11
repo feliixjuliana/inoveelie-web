@@ -42,11 +42,13 @@ export default function HomeInicial() {
                         <Grid.Column>
                             <div className="botoesderota">
 
+                               <Link to={'/Form-Pedidos'}>
                                 <button className="pedidos"
                                 >
                                     Cadastro de pedidos
 
                                 </button>
+                                </Link>
 
                                 <Link to={'/List-Materiais'}>
                                 <button className="materiais">
