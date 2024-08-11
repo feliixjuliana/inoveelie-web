@@ -11,6 +11,7 @@ import SenhaRecuperar from './views/usuario/CodigoRecuperar';
 import SenhaNova from './views/usuario/SenhaNova';
 import EditarInfor from './views/usuario/EditarInformacoes';
 import FormCliente from './views/cliente/FormCliente';
+import ListCliente from './views/cliente/ListCliente';
 
 
 
@@ -20,15 +21,16 @@ function Rotas() {
             <Routes>
                 <Route path="/" element={ <Home/> } />
                 <Route path='/cadastro-usuario' element={ <CadastroUsuario/> } />
-                <Route path='/tela-home-usuario' element={ <HomeInicial/> } />
-                <Route path='/Form-Materiais' element={ <FormMateriais/> } />
-                <Route path='/List-Materiais' element={ <ListMateriais/> } />
+                <Route path='/home-usuario' element={ <HomeInicial/> } />
                 <Route path='/Codigo-conta' element={ <AtivacaoConta/> } />
                 <Route path='/Esqueceu-Email' element={ <EsqueceuSenha/> } />
                 <Route path='/Codigo-Recup' element={ <SenhaRecuperar/> } />
                 <Route path='/Senha-Nova' element={ <SenhaNova/> } />
                 <Route path='/Edit-Infor' element={ <EditarInfor/> } />
                 <Route path='/Form-Cliente' element={ <FormCliente/> } />
+                <Route path='/List-Cliente' element={ <ListCliente/> } />
+                <Route path='/Form-Materiais' element={ <FormMateriais/> } />
+                <Route path='/List-Materiais' element={ <ListMateriais/> } />
 
 
             </Routes>

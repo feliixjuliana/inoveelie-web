@@ -488,3 +488,25 @@
 
   /******************* Corpo da tela de cadastro de materiais *****************/
 
+
+
+
+    /******************* Corpo da Tela de Listagem de Cliente *****************/
+
+    .containerPrincipalCliente {
+
+      background-color: #F1DFCD;
+      background-image: url("../public/papeldatelainicial.png");
+      background-repeat: repeat;
+      background-size: cover;
+      background-position: center; 
+      image-rendering: crisp-edges; 
+      image-rendering: pixelated;
+      animation: fadeIn s ease-in-out forwards;
+      display: block !important;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%; 
+      animation: fadeIn 1s ease-in-out forwards;
+    }

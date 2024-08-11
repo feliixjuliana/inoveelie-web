@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input } from 'semantic-ui-react';
 
 const options = [
@@ -43,18 +43,22 @@ export default function HomeInicial() {
                             <div className="botoesderota">
 
                                 <button className="pedidos"
-                                value>
+                                >
                                     Cadastro de pedidos
 
                                 </button>
 
+                                <Link to={'/List-Materiais'}>
                                 <button className="materiais">
                                     Materiais
                                 </button>
+                                </Link>
 
+                                <Link to={'/List-Cliente'}>
                                 <button className="clientes">
                                     Clientes
                                 </button>
+                                </Link>
 
 
                             </div>

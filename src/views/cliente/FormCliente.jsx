@@ -3,8 +3,56 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import InputMask from "react-input-mask";
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
+import {mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
+import { useNavigate } from 'react-router-dom';
 
 export default function FormCliente() {
+
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const [idCliente, setIdCliente] = useState();
+  const [nomeCliente, setNomeCliente] = useState();
+  const [numeroCliente, setNumeroCliente] = useState();
+
+  useEffect(() => {
+      if (state != null && state.id != null) {
+          axios.get("http://localhost:8080/api/cliente/" + state.id)
+              .then((response) => {
+                  setIdCliente(response.data.id)
+                  setNomeCliente(response.data.nomeCliente)
+                  setNumeroCliente(response.data.numeroCliente)
+              })
+      }
+  }, [state])
+
+  function salvar() {
+
+      let clienteRequest = {
+          nomeCliente: nomeCliente,
+          numeroCliente: numeroCliente,
+      }
+
+      if (idCliente != null) { //Alteração:
+
+          axios.put("http://localhost:8080/api/cliente/" + idCliente, clienteRequest)
+              .then((response) => { console.log('Cliente alterado com sucesso.') })
+              .catch((error) => { console.log('Erro ao alter um cliente.') })
+
+      } else { //Cadastro:
+
+          axios.post("http://localhost:8080/api/cliente", clienteRequest)
+              .then((response) => { notifySuccess('Cliente cadastrado com sucesso.') 
+                navigate('/');
+
+              }
+                   
+            )
+              .catch((error) => { if (error.response) {
+                  notifyError(error.response.data.message)
+                  }
+                   })
+      }
+  }
 
     return (
         <div className="corpinhodocadastro">
@@ -20,6 +68,8 @@ export default function FormCliente() {
                 <Input
                   fluid
                   placeholder='Nome'
+                  value = {nomeCliente}
+                  onChange={e => setNomeCliente(e.target.value)}
                 />
               </div>
     
@@ -31,6 +81,8 @@ export default function FormCliente() {
                   <InputMask
                   mask="(99)9 9999-9999"
                   placeholder= '(00)0 0000-0000'
+                  value={numeroCliente}
+                  onChange={e => setNumeroCliente(e.target.value)}
                   />
               </Input>
               </div>
@@ -39,12 +91,13 @@ export default function FormCliente() {
     
     
             <div className="botoesdenaveg">
-              <Button className="botaoentrar"      
+              <Button className="botaoentrar"
+              onClick={() => salvar()}      
               >
                 Salvar
     
               </Button>
-              <Link to={'/'}>
+              <Link to={'/List-Cliente'}>
                 <Button className="botaovoltar">
                   Voltar
                 </Button>

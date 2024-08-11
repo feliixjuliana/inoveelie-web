@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Container, Divider, Icon, Table, Modal, Header } from 'semantic-ui-react';
 
-export default function ListMaterial() {
+export default function ListCliente() {
 
     const [lista, setLista] = useState([]);
     const [openModal, setOpenModal] = useState(false);
@@ -16,7 +16,7 @@ export default function ListMaterial() {
 
     function carregarLista() {
 
-        axios.get("http://localhost:8080/api/material")
+        axios.get("http://localhost:8080/api/cliente")
             .then((response) => {
                 setLista(response.data)
             })
@@ -29,18 +29,18 @@ export default function ListMaterial() {
 
     async function remover() {
 
-        await axios.delete('http://localhost:8080/api/material/' + idRemover)
+        await axios.delete('http://localhost:8080/api/cliente/' + idRemover)
             .then((response) => {
 
-                console.log('Material removido com sucesso.')
+                console.log('Cliente removido com sucesso.')
 
-                axios.get("http://localhost:8080/api/material")
+                axios.get("http://localhost:8080/api/cliente")
                     .then((response) => {
                         setLista(response.data)
                     })
             })
             .catch((error) => {
-                console.log('Erro ao remover o material.')
+                console.log('Erro ao remover um cliente.')
             })
         setOpenModal(false)
     }
@@ -66,13 +66,13 @@ export default function ListMaterial() {
                             to='/home-usuario'
                         />
                         <Button
-                            label='Cadastre um Novo Material'
+                            label='Cadastre um Novo Cliente'
                             circular
                             color='pink'
                             icon='clipboard outline'
                             floated='right'
                             as={Link}
-                            to='/Form-Materiais'
+                            to='/form-cliente'
                         />
                         <br /><br /><br />
 
@@ -81,38 +81,36 @@ export default function ListMaterial() {
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell>Nome</Table.HeaderCell>
-                                    <Table.HeaderCell>Descrição</Table.HeaderCell>
-                                    <Table.HeaderCell>Quantidade</Table.HeaderCell>
+                                    <Table.HeaderCell>Telefone</Table.HeaderCell>
                                     <Table.HeaderCell textAlign='center'>Ações</Table.HeaderCell>
                                 </Table.Row>
                             </Table.Header>
 
                             <Table.Body>
 
-                                {lista.map(material => (
+                                {lista.map(cliente => (
 
-                                    <Table.Row key={material.id}>
-                                        <Table.Cell>{material.nome}</Table.Cell>
-                                        <Table.Cell>{material.descricao}</Table.Cell>
-                                        <Table.Cell>{material.quantidade}</Table.Cell>
+                                    <Table.Row key={cliente.id}>
+                                        <Table.Cell>{cliente.nomeCliente}</Table.Cell>
+                                        <Table.Cell>{cliente.numeroCliente}</Table.Cell>
                                         <Table.Cell textAlign='center'>
 
                                             <Button
                                                 inverted
                                                 circular
                                                 color='green'
-                                                title='Clique aqui para editar os dados deste material'
+                                                title='Clique aqui para editar os dados deste cliente'
                                                 icon>
-                                                <Link to="/form-materiais" state={{ id: material.id }} style={{ color: 'green' }}> <Icon name='edit' /> </Link>
+                                                <Link to="/form-cliente" state={{ id: cliente.id }} style={{ color: 'green' }}> <Icon name='edit' /> </Link>
                                             </Button> &nbsp;
 
                                             <Button
                                                 inverted
                                                 circular
                                                 color='red'
-                                                title='Clique aqui para remover este material'
+                                                title='Clique aqui para remover este cliente'
                                                 icon
-                                                onClick={e => confirmaRemover(material.id)}>
+                                                onClick={e => confirmaRemover(cliente.id)}>
                                                 <Icon name='trash' />
                                             </Button>
 
