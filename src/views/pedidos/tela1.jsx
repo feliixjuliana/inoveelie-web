@@ -1,6 +1,9 @@
-import React from "react";
-import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, GridColumn } from 'semantic-ui-react';
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import InputMask from "react-input-mask";
+import { Grid, GridColumn, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
+import {mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
 import { useNavigate } from 'react-router-dom';
 
 const options = [
@@ -39,8 +42,8 @@ export default function Home() {
                     setDataEntrega(response.data.dataEntrega)
                     setDescricao(response.data.descricao)
                     setValor(response.data.valor)
-                    setBusto(responde.data.busto)
-                    setCintura(responde.data.cintura)
+                    setBusto(response.data.busto)
+                    setCintura(response.data.cintura)
                     setQuadril(response.data.quadril)
                     setAlturaManga(response.data.alturaManga)
                     setAlturaCava(response.data.alturaCava)
@@ -147,11 +150,6 @@ export default function Home() {
 
                             <GridColumn>
                                 <div className="input-container">
-
-                                    <p>Altura:</p>
-                                    <input type="text" 
-                                    value={altura}
-                                    onChange={e => setAltura(e.target.value)}/>
 
                                     <p>Busto:</p>
                                     <input type="text" 
