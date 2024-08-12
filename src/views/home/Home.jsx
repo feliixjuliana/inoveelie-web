@@ -1,8 +1,39 @@
-import React from "react";
-import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input } from 'semantic-ui-react';
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button, Form, Grid, Header, Image, Input, Message, Segment } from 'semantic-ui-react';
+import { notifyError } from '../../views/util/Util';
+import { registerSuccessfulLoginForJwt } from '../util/AuthenticationService';
 
 export default function Home() {
+
+    const navigate = useNavigate();
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    function entrar() {
+
+        if (username !== '' && password !== '') {
+
+            let authenticationRequest = {
+                username: username,
+                password: password,
+            }
+
+            axios.post("http://localhost:8080/api/usuario", authenticationRequest)
+                .then((response) => {
+
+                    registerSuccessfulLoginForJwt(response.data.token, response.data.expiration)
+                    navigate("/home-usuario");
+
+                })
+                .catch((error) => {
+
+                    notifyError('Usuário não encontrado')
+                })
+        }
+    }
 
     return (
 
@@ -45,6 +76,8 @@ export default function Home() {
                                 <Input
                                     fluid
                                     placeholder='E-mail'
+                                    value={username}
+                                    onChange={e => setUsername(e.target.value)}
                                 />
                             </div>
 
@@ -54,16 +87,20 @@ export default function Home() {
                                     type="password"
                                     fluid
                                     placeholder='Senha'
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
                                 />
                             </div>
 
                             <Link to={'/Esqueceu-Email'}>
-                            <p className="Esqueceu"> 
-                                
-                                Esqueceu a Senha?</p></Link>
+                                <p className="Esqueceu">
+
+                                    Esqueceu a Senha?</p></Link>
 
                             <div className="areadosbotoeslogin">
-                                <Button >Entrar</Button>
+                                <Button 
+                                onClick={() => entrar()} 
+                                > Entrar</Button>
                                 <Button >Entrar Com o Google</Button>
                             </div>
 

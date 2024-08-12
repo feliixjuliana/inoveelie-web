@@ -14,6 +14,7 @@ import FormCliente from './views/cliente/FormCliente';
 import ListCliente from './views/cliente/ListCliente';
 import FormPedidos from './views/pedidos/tela1';
 import FormPedidoMateriais from './views/pedidos/tela2';
+import { ProtectedRoute } from './views/util/ProtectedRoute';
 
 
 
@@ -23,18 +24,18 @@ function Rotas() {
             <Routes>
                 <Route path="/" element={ <Home/> } />
                 <Route path='/cadastro-usuario' element={ <CadastroUsuario/> } />
-                <Route path='/home-usuario' element={ <HomeInicial/> } />
+                <Route path='/home-usuario' element={ <ProtectedRoute><HomeInicial/></ProtectedRoute> } />
                 <Route path='/Codigo-conta' element={ <AtivacaoConta/> } />
                 <Route path='/Esqueceu-Email' element={ <EsqueceuSenha/> } />
                 <Route path='/Codigo-Recup' element={ <SenhaRecuperar/> } />
                 <Route path='/Senha-Nova' element={ <SenhaNova/> } />
-                <Route path='/Edit-Infor' element={ <EditarInfor/> } />
-                <Route path='/Form-Cliente' element={ <FormCliente/> } />
-                <Route path='/List-Cliente' element={ <ListCliente/> } />
-                <Route path='/Form-Materiais' element={ <FormMateriais/> } />
-                <Route path='/List-Materiais' element={ <ListMateriais/> } />
-                <Route path='/Form-Pedidos' element={ <FormPedidos/> } />
-                <Route path='/Form-P-Materiais' element={ <FormPedidoMateriais/> } />
+                <Route path='/Edit-Infor' element={ <ProtectedRoute><EditarInfor/></ProtectedRoute> } />
+                <Route path='/Form-Cliente' element={ <ProtectedRoute><FormCliente/></ProtectedRoute> } />
+                <Route path='/List-Cliente' element={ <ProtectedRoute><ListCliente/> </ProtectedRoute>} />
+                <Route path='/Form-Materiais' element={ <ProtectedRoute><FormMateriais/></ProtectedRoute> } />
+                <Route path='/List-Materiais' element={ <ProtectedRoute><ListMateriais/> </ProtectedRoute>} />
+                <Route path='/Form-Pedidos' element={ <ProtectedRoute><FormPedidos/> </ProtectedRoute>} />
+                <Route path='/Form-P-Materiais' element={ <ProtectedRoute><FormPedidoMateriais/> </ProtectedRoute>} />
 
 
 
