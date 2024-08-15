@@ -21,7 +21,7 @@ export default function Home() {
                 password: password,
             }
 
-            axios.post("http://localhost:8080/api/usuario", authenticationRequest)
+            axios.post("http://localhost:8080/api/auth", authenticationRequest)
                 .then((response) => {
 
                     registerSuccessfulLoginForJwt(response.data.token, response.data.expiration)
