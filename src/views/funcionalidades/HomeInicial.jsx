@@ -11,17 +11,16 @@ const options = [
 export default function HomeInicial() {
 
     const navegando = useNavigate();
+    const [idUsuario, setIdUsuario] = useState();
 
     const handleChange = (e, { value }) => {
         if (value === 'editarPerfil') {
-            navegando('/Edit-Infor');
+            navegando('/Edit-Infor', { state: { id: idUsuario } });
         } else {
             navegando('/');
         };
 
     }
-
-
 
     return (
 

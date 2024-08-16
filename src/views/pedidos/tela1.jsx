@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import InputMask from "react-input-mask";
 import { Grid, GridColumn, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
-import {mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
+import { mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
 import { useNavigate } from 'react-router-dom';
 
 const options = [
@@ -30,7 +30,7 @@ export default function Home() {
     const [largura, setLargura] = useState();
     const [comprimentoSaia, setComprimentoSaia] = useState();
 
-  
+
     useEffect(() => {
         if (state != null && state.id != null) {
             axios.get("http://localhost:8080/api/pedido/" + state.id)
@@ -52,9 +52,9 @@ export default function Home() {
                 })
         }
     }, [state])
-  
+
     function salvar() {
-  
+
         let pedidoRequest = {
             tipoPedido: tipoPedido,
             nomeCliente: nomeCliente,
@@ -69,28 +69,30 @@ export default function Home() {
             alturaCava: alturaCava,
             largura: largura,
             comprimentoSaia: comprimentoSaia
-            
+
         }
-  
+
         if (idPedido != null) { //Alteração:
-  
+
             axios.put("http://localhost:8080/api/pedido/" + idPedido, pedidoRequest)
                 .then((response) => { console.log('Pedido alterado com sucesso.') })
                 .catch((error) => { console.log('Erro ao alter um pedido.') })
-  
+
         } else { //Cadastro:
-  
+
             axios.post("http://localhost:8080/api/pedido", pedidoRequest)
-                .then((response) => { notifySuccess('Pedido cadastrado com sucesso.') 
-                  navigate('/home-usuario');
-  
+                .then((response) => {
+                    notifySuccess('Pedido cadastrado com sucesso.')
+                    navigate('/home-usuario');
+
                 }
-                     
-              )
-                .catch((error) => { if (error.response) {
-                    notifyError(error.response.data.message)
+
+                )
+                .catch((error) => {
+                    if (error.response) {
+                        notifyError(error.response.data.message)
                     }
-                     })
+                })
         }
     }
 
@@ -117,33 +119,47 @@ export default function Home() {
 
                                     <p>Nome do Cliente:</p>
                                     <input type="text"
-                                    value={nomeCliente}
-                                    onChange={e => setNomeCliente(e.target.value)}></input>
+                                        value={nomeCliente}
+                                        onChange={e => setNomeCliente(e.target.value)}></input>
 
                                     <p>Telefone:</p>
-                                    <input type="text"
-                                    value={numeroCliente}
-                                    onChange={e => setNumeroCliente(e.target.value)}></input>
+                                    <Form.Input type="text"
+                                        value={numeroCliente} >
+                                        <InputMask
+                                            mask="(99) 9 9999-9999"
+                                            maskChar={null}
+                                            onChange={e => setNumeroCliente(e.target.value)}
+                                        />
+                                    </Form.Input>
 
                                     <p>Data de Entrega:</p>
-                                    <input type="text"
-                                    value={dataEntrega}
-                                    onChange={e => setDataEntrega(e.target.value)}></input>
+                                    <Form.Input type="text"
+                                        value={dataEntrega}
+
+                                    >
+                                        <InputMask
+                                            mask="99/99/9999"
+                                            maskChar={null}
+                                            
+                                            onChange={e => setDataEntrega(e.target.value)}
+                                        />
+
+                                    </Form.Input>
 
                                     <p>Valor:</p>
                                     <input type="text"
-                                    value={valor}
-                                    onChange={e => setValor(e.target.value)}></input>
+                                        value={valor}
+                                        onChange={e => setValor(e.target.value)}></input>
 
                                     <p>Descrição: </p>
                                     <input type="text"
-                                    value={descricao}
-                                    onChange={e => setDescricao(e.target.value)}></input>
+                                        value={descricao}
+                                        onChange={e => setDescricao(e.target.value)}></input>
 
                                     <p>Altura da Cava:</p>
                                     <input type="text"
-                                    value={alturaCava}
-                                    onChange={e => setAlturaCava(e.target.value)}></input>
+                                        value={alturaCava}
+                                        onChange={e => setAlturaCava(e.target.value)}></input>
                                 </div>
                             </GridColumn>
 
@@ -152,34 +168,34 @@ export default function Home() {
                                 <div className="input-container">
 
                                     <p>Busto:</p>
-                                    <input type="text" 
-                                    value={busto}
-                                    onChange={e => setBusto(e.target.value)}/>
+                                    <input type="text"
+                                        value={busto}
+                                        onChange={e => setBusto(e.target.value)} />
 
                                     <p>Cintura:</p>
-                                    <input type="text" 
-                                    value={cintura}
-                                    onChange={e => setCintura(e.target.value)}/>
+                                    <input type="text"
+                                        value={cintura}
+                                        onChange={e => setCintura(e.target.value)} />
 
                                     <p>Quadril:</p>
-                                    <input type="text" 
-                                    value={quadril}
-                                    onChange={e => setQuadril(e.target.value)}/>
+                                    <input type="text"
+                                        value={quadril}
+                                        onChange={e => setQuadril(e.target.value)} />
 
                                     <p>Comprimento da Manga</p>
-                                    <input type="text" 
-                                    value={alturaManga}
-                                    onChange={e => setAlturaManga(e.target.value)}/>
+                                    <input type="text"
+                                        value={alturaManga}
+                                        onChange={e => setAlturaManga(e.target.value)} />
 
                                     <p>Largura:</p>
-                                    <input type="text" 
-                                    value={largura}
-                                    onChange={e => setLargura(e.target.value)}/>
+                                    <input type="text"
+                                        value={largura}
+                                        onChange={e => setLargura(e.target.value)} />
 
                                     <p>Comprimento da Saia:</p>
-                                    <input type="text" 
-                                    value={comprimentoSaia}
-                                    onChange={e => setComprimentoSaia(e.target.value)}/>
+                                    <input type="text"
+                                        value={comprimentoSaia}
+                                        onChange={e => setComprimentoSaia(e.target.value)} />
 
 
 
@@ -204,7 +220,7 @@ export default function Home() {
                     </Link>
 
                     <Button className="botaoentrar"
-                    onClick={() => salvar()}
+                        onClick={() => salvar()}
                     >
                         Salvar
 

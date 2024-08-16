@@ -42,7 +42,7 @@ export default function FormCliente() {
 
           axios.post("http://localhost:8080/api/cliente", clienteRequest)
               .then((response) => { notifySuccess('Cliente cadastrado com sucesso.') 
-                navigate('/');
+                navigate('/List-Cliente');
 
               }
                    
