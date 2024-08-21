@@ -44,7 +44,7 @@ export default function HomeInicial() {
                                <Link to={'/Form-Pedidos'}>
                                 <button className="pedidos"
                                 >
-                                    Cadastro de pedidos
+                                    Pedidos
 
                                 </button>
                                 </Link>

@@ -452,7 +452,8 @@
   .botoesderota button{
     display: block !important;
     align-items: center !important;
-    margin: 10px auto !important;
+    margin: 10px auto;
+    margin-top: 35px !important;
     border-radius: 24px ;
     border: none;
     padding: 30px;
@@ -483,6 +484,7 @@
     border-radius: 6px;
     width: 100%;
   }
+
 
 
 
