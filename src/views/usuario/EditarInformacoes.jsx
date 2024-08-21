@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import InputMask from "react-input-mask";
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
 import { notifyError, notifySuccess } from "../util/Util";
+import { getUsername } from "../util/AuthenticationService";
 
 export default function CadastroUsuario() {
 
@@ -13,15 +14,17 @@ export default function CadastroUsuario() {
   const [sobrenome, setSobrenome] = useState();
 
   useEffect(() => {
-    if (state != null && state.id != null) {
-      axios.get("http://localhost:8080/api/usuario/" + state.id)
+    
+     let username = getUsername();
+     console.log("username é = " + username);
+      axios.get("http://localhost:8080/api/usuario/getUsuario/" + username)
         .then((response) => {
           setIdUsuario(response.data.id)
           setNome(response.data.nome)
           setSobrenome(response.data.sobrenome)
 
         })
-    }
+    
   }, [state])
 
   function salvar() {
@@ -30,7 +33,7 @@ export default function CadastroUsuario() {
       nome: nome,
       sobrenome: sobrenome
     }
-
+    console.log("Id Usuario = " + idUsuario);
     if (idUsuario != null) { //Alteração:
 
       axios.put("http://localhost:8080/api/usuario/" + idUsuario, usuarioRequest)
@@ -85,7 +88,7 @@ export default function CadastroUsuario() {
                 Salvar
     
               </Button>
-          <Link to={'/'}>
+          <Link to={'/home-usuario'}>
             <Button className="botaovoltar">
               Voltar
             </Button>

@@ -2,11 +2,13 @@ import axios from 'axios';
 
 export const TOKEN_SESSION_ATTRIBUTE_NAME = 'token'
 export const EXPIRATION_SESSION_ATTRIBUTE_NAME = 'expiration'
+export const USERNAME = 'username'
 
-export const registerSuccessfulLoginForJwt = (token, expiration) => {
-
+export const registerSuccessfulLoginForJwt = (token, expiration, username) => {
+    console.log("username =" + username)
     localStorage.setItem(TOKEN_SESSION_ATTRIBUTE_NAME, token)
     localStorage.setItem(EXPIRATION_SESSION_ATTRIBUTE_NAME, expiration)
+    localStorage.setItem(USERNAME, username)
 
     setupAxiosInterceptors()
 }
@@ -36,6 +38,11 @@ export const isTokenExpired = () => {
 
     let expiration = localStorage.getItem(EXPIRATION_SESSION_ATTRIBUTE_NAME)
     return expiration === null || expiration < new Date().getTime()
+}
+
+export const getUsername = () => {
+
+    return localStorage.getItem(USERNAME)
 }
 
 export const isUserLoggedIn = () => {
