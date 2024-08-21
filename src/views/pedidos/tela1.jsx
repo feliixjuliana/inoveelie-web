@@ -22,13 +22,15 @@ export default function Home() {
     const [dataEntrega, setDataEntrega] = useState();
     const [descricao, setDescricao] = useState();
     const [valor, setValor] = useState();
-    const [busto, setBusto] = useState();
-    const [cintura, setCintura] = useState();
-    const [quadril, setQuadril] = useState();
-    const [alturaManga, setAlturaManga] = useState();
-    const [alturaCava, setAlturaCava] = useState();
-    const [largura, setLargura] = useState();
-    const [comprimentoSaia, setComprimentoSaia] = useState();
+    const [medidas, setMedidas] = useState({
+        busto: '',
+        cintura: '',
+        quadril: '',
+        alturaManga: '',
+        alturaCava: '',
+        largura: '',
+        comprimentoSaia: ''
+    });
 
 
     useEffect(() => {
@@ -36,19 +38,13 @@ export default function Home() {
             axios.get("http://localhost:8080/api/pedido/" + state.id)
                 .then((response) => {
                     setIdPedido(response.data.id)
-                    setTipoPedido(response.data.tipoPedido)
-                    setNomeCliente(response.data.nomeCliente)
-                    setNumeroCliente(response.data.numeroCliente)
-                    setDataEntrega(response.data.dataEntrega)
-                    setDescricao(response.data.descricao)
-                    setValor(response.data.valor)
-                    setBusto(response.data.busto)
-                    setCintura(response.data.cintura)
-                    setQuadril(response.data.quadril)
-                    setAlturaManga(response.data.alturaManga)
-                    setAlturaCava(response.data.alturaCava)
-                    setLargura(response.data.largura)
-                    setComprimentoSaia(response.data.comprimentoSaia)
+                setTipoPedido(response.data.tipoPedido)
+                setNomeCliente(response.data.cliente.nome);
+                setNumeroCliente(response.data.cliente.numero);
+                setDataEntrega(response.data.dataEntrega);
+                setDescricao(response.data.descricao);
+                setValor(response.data.valor);
+                setMedidas(response.data.medida);
                 })
         }
     }, [state])
@@ -57,18 +53,14 @@ export default function Home() {
 
         let pedidoRequest = {
             tipoPedido: tipoPedido,
-            nomeCliente: nomeCliente,
-            numeroCliente: numeroCliente,
             dataEntrega: dataEntrega,
             descricao: descricao,
             valor: valor,
-            busto: busto,
-            cintura: cintura,
-            quadril: quadril,
-            alturaManga: alturaManga,
-            alturaCava: alturaCava,
-            largura: largura,
-            comprimentoSaia: comprimentoSaia
+            cliente: {
+                nome: nomeCliente,
+                numero: numeroCliente
+            },
+            medida: medidas
 
         }
 
@@ -90,10 +82,30 @@ export default function Home() {
                 )
                 .catch((error) => {
                     if (error.response) {
-                        notifyError(error.response.data.message)
+                        notifyError(error.response.data.message);
+                        console.error('Erro', error);
+
                     }
                 })
         }
+    }
+
+    function enviarComprovante() {
+        let pedidoRequest = {
+            tipoPedido: tipoPedido,
+            nomeCliente: nomeCliente,
+            numeroCliente: numeroCliente,
+            dataEntrega: dataEntrega,
+        };
+
+        axios.post('/pedidos/enviar-comprovante', pedidoRequest)
+            .then(() => {
+                alert('Comprovante enviado com sucesso!');
+            })
+            .catch((error) => {
+                console.error('Erro ao enviar o comprovante:', error);
+                alert('Falha ao enviar o comprovante.');
+            });
     }
 
     return (
@@ -140,7 +152,7 @@ export default function Home() {
                                         <InputMask
                                             mask="99/99/9999"
                                             maskChar={null}
-                                            
+
                                             onChange={e => setDataEntrega(e.target.value)}
                                         />
 
@@ -158,8 +170,8 @@ export default function Home() {
 
                                     <p>Altura da Cava:</p>
                                     <input type="text"
-                                        value={alturaCava}
-                                        onChange={e => setAlturaCava(e.target.value)}></input>
+                                        value={medidas.alturaCava}
+                                        onChange={e => setMedidas(e.target.value)}></input>
                                 </div>
                             </GridColumn>
 
@@ -169,33 +181,33 @@ export default function Home() {
 
                                     <p>Busto:</p>
                                     <input type="text"
-                                        value={busto}
-                                        onChange={e => setBusto(e.target.value)} />
+                                        value={medidas.busto}
+                                        onChange={e => setMedidas(e.target.value)} />
 
                                     <p>Cintura:</p>
                                     <input type="text"
-                                        value={cintura}
-                                        onChange={e => setCintura(e.target.value)} />
+                                        value={medidas.cintura}
+                                        onChange={e => setMedidas(e.target.value)} />
 
                                     <p>Quadril:</p>
                                     <input type="text"
-                                        value={quadril}
-                                        onChange={e => setQuadril(e.target.value)} />
+                                        value={medidas.quadril}
+                                        onChange={e => setMedidas(e.target.value)} />
 
                                     <p>Comprimento da Manga</p>
                                     <input type="text"
-                                        value={alturaManga}
-                                        onChange={e => setAlturaManga(e.target.value)} />
+                                        value={medidas.alturaManga}
+                                        onChange={e => setMedidas(e.target.value)} />
 
                                     <p>Largura:</p>
                                     <input type="text"
-                                        value={largura}
-                                        onChange={e => setLargura(e.target.value)} />
+                                        value={medidas.largura}
+                                        onChange={e => setMedidas(e.target.value)} />
 
                                     <p>Comprimento da Saia:</p>
                                     <input type="text"
-                                        value={comprimentoSaia}
-                                        onChange={e => setComprimentoSaia(e.target.value)} />
+                                        value={medidas.comprimentoSaia}
+                                        onChange={e => setMedidas(e.target.value)} />
 
 
 
@@ -226,8 +238,16 @@ export default function Home() {
 
                     </Button>
 
+                </div>
 
+                <div className="botoesdenaveg">
+                    <Button className="botaoentrar"
+                        onClick={enviarComprovante}
 
+                    >
+                        Comprovante
+
+                    </Button>
                 </div>
             </div>
 
