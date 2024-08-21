@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, Input } from 'semantic-ui-react';
 
 export default function AtivarUsuario() {
+  const [codigo, setCodigo] = useState('');
   const [codigoAtivacao, setCodigoAtivacao] = useState('');
   const [email, setEmail] = useState('');
 
@@ -16,6 +17,8 @@ export default function AtivarUsuario() {
     })
     .then((response) => {
       console.log('Usuário ativado com sucesso.');
+      //notifySuccess('Para nossa alegria, suas informações foram aceitas, aguarde nosso código de ativação em seu e-mail!')
+      //navigate('/');
       // Notificação de sucesso
     })
     .catch((error) => {

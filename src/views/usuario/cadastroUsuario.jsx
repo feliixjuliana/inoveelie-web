@@ -49,7 +49,7 @@ export default function CadastroUsuario() {
           
           console.log('Usuário cadastrado com sucesso.') 
           notifySuccess('Para nossa alegria, suas informações foram aceitas, aguarde nosso código de ativação em seu e-mail!')
-          navigate('/');
+          navigate('/AtivacaodeConta');
         })
         .catch((error) => { if (error.response.data.errors != undefined) {
           for (let i = 0; i < error.response.data.errors.length; i++) {

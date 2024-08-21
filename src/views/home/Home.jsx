@@ -14,6 +14,8 @@ export default function Home() {
 
     function entrar() {
 
+        if (usuario.ativacao = false){throw erro}
+
         if (username !== '' && password !== '') {
 
             let authenticationRequest = {
