@@ -6,62 +6,76 @@ import { Grid, GridColumn, Button, Container, Divider, Form, FormGroup, FormRadi
 import { mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
 import { useNavigate } from 'react-router-dom';
 
-const options = [
+/*const options = [
     { key: 'Conserto', value: 'Conserto', text: 'Conserto' },
     { key: 'Confeccao', value: 'Confeccao', text: 'Confecção' },
-]
+]*/
 
 export default function Home() {
 
     const navigate = useNavigate();
     const { state } = useLocation();
     const [idPedido, setIdPedido] = useState();
-    const [tipoPedido, setTipoPedido] = useState();
+    const [idTipo, setIdTipo] = useState();
     const [nomeCliente, setNomeCliente] = useState();
     const [numeroCliente, setNumeroCliente] = useState();
     const [dataEntrega, setDataEntrega] = useState();
-    const [descricao, setDescricao] = useState();
     const [valor, setValor] = useState();
-    const [medidas, setMedidas] = useState({
-        busto: '',
-        cintura: '',
-        quadril: '',
-        alturaManga: '',
-        alturaCava: '',
-        largura: '',
-        comprimentoSaia: ''
-    });
-
+    const [descricao, setDescricao] = useState();
+    const [alturaCava, setAlturaCava] = useState();
+    const [busto, setBusto] = useState();
+    const [cintura, setCintura] = useState();
+    const [quadril, setQuadril] = useState();
+    const [comprimentoManga, setComprimentoManga] = useState();
+    const [largura, setLargura] = useState();
+    const [comprimentoSaia, setComprimentoSaia] = useState();
+    const [listaTipo, setListaTipo] = useState();
 
     useEffect(() => {
         if (state != null && state.id != null) {
             axios.get("http://localhost:8080/api/pedido/" + state.id)
                 .then((response) => {
-                    setIdPedido(response.data.id)
-                setTipoPedido(response.data.tipoPedido)
-                setNomeCliente(response.data.cliente.nome);
-                setNumeroCliente(response.data.cliente.numero);
+                setIdPedido(response.data.id)
+                setIdTipo(response.data.tipo.id)
+                setNomeCliente(response.data.nomeCliente);
+                setNumeroCliente(response.data.numeroCliente);
                 setDataEntrega(response.data.dataEntrega);
-                setDescricao(response.data.descricao);
                 setValor(response.data.valor);
-                setMedidas(response.data.medida);
+                setDescricao(response.data.descricao);
+                setAlturaCava(response.data.alturaCava);
+                setBusto(response.data.busto);
+                setCintura(response.data.cintura);
+                setQuadril(response.data.quadril);
+                setComprimentoManga(response.data.comprimentoManga);
+                setLargura(response.data.largura);
+                setComprimentoSaia(response.data.comprimentoSaia);
                 })
         }
+
+        axios.get("http://localhost:8080/api/tipoPedido")
+       .then((response) => {
+           const dropDownTipos = response.data.map(c => ({ text: c.descricao, value: c.id }));
+           setListaTipo(dropDownTipos);
+       })
+
     }, [state])
 
     function salvar() {
 
         let pedidoRequest = {
-            tipoPedido: tipoPedido,
+            idTipo: idTipo,
+            nomeCliente: nomeCliente,
+            numeroCliente: numeroCliente,
             dataEntrega: dataEntrega,
-            descricao: descricao,
             valor: valor,
-            cliente: {
-                nome: nomeCliente,
-                numero: numeroCliente
-            },
-            medida: medidas
-
+            descricao: descricao,
+            alturaCava: alturaCava,
+            busto: busto,
+            cintura: cintura,
+            quadril: quadril,
+            comprimentoManga: comprimentoManga,
+            largura: largura,
+            comprimentoSaia: comprimentoSaia
         }
 
         if (idPedido != null) { //Alteração:
@@ -92,7 +106,7 @@ export default function Home() {
 
     function enviarComprovante() {
         let pedidoRequest = {
-            tipoPedido: tipoPedido,
+            idTipo: idTipo,
             nomeCliente: nomeCliente,
             numeroCliente: numeroCliente,
             dataEntrega: dataEntrega,
@@ -122,10 +136,10 @@ export default function Home() {
                                     <p>Tipo:</p>
                                     <FormSelect
                                         fluid
-                                        options={options}
+                                        options={listaTipo}
                                         placeholder='Selecione Aqui'
-                                        value={tipoPedido}
-                                        onChange={e => setTipoPedido(e.target.value)}
+                                        value={idTipo}
+                                        onChange={(e,{value}) => {setIdTipo(value)}}
 
                                     />
 
@@ -170,8 +184,8 @@ export default function Home() {
 
                                     <p>Altura da Cava:</p>
                                     <input type="text"
-                                        value={medidas.alturaCava}
-                                        onChange={e => setMedidas(e.target.value)}></input>
+                                        value={alturaCava}
+                                        onChange={e => setAlturaCava(e.target.value)}></input>
                                 </div>
                             </GridColumn>
 
@@ -181,33 +195,33 @@ export default function Home() {
 
                                     <p>Busto:</p>
                                     <input type="text"
-                                        value={medidas.busto}
-                                        onChange={e => setMedidas(e.target.value)} />
+                                        value={busto}
+                                        onChange={e => setBusto(e.target.value)} />
 
                                     <p>Cintura:</p>
                                     <input type="text"
-                                        value={medidas.cintura}
-                                        onChange={e => setMedidas(e.target.value)} />
+                                        value={cintura}
+                                        onChange={e => setCintura(e.target.value)} />
 
                                     <p>Quadril:</p>
                                     <input type="text"
-                                        value={medidas.quadril}
-                                        onChange={e => setMedidas(e.target.value)} />
+                                        value={quadril}
+                                        onChange={e => setQuadril(e.target.value)} />
 
                                     <p>Comprimento da Manga</p>
                                     <input type="text"
-                                        value={medidas.alturaManga}
-                                        onChange={e => setMedidas(e.target.value)} />
+                                        value={comprimentoManga}
+                                        onChange={e => setComprimentoManga(e.target.value)} />
 
                                     <p>Largura:</p>
                                     <input type="text"
-                                        value={medidas.largura}
-                                        onChange={e => setMedidas(e.target.value)} />
+                                        value={largura}
+                                        onChange={e => setLargura(e.target.value)} />
 
                                     <p>Comprimento da Saia:</p>
                                     <input type="text"
-                                        value={medidas.comprimentoSaia}
-                                        onChange={e => setMedidas(e.target.value)} />
+                                        value={comprimentoSaia}
+                                        onChange={e => setComprimentoSaia(e.target.value)} />
 
 
 
@@ -254,4 +268,3 @@ export default function Home() {
         </div>
     )
 }
-
