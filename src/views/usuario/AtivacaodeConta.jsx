@@ -2,8 +2,12 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Input } from 'semantic-ui-react';
+import { notifyError, notifySuccess } from "../util/Util";
+import { useNavigate } from 'react-router-dom';
 
 export default function AtivarUsuario() {
+
+  const navigate = useNavigate();
   const [codigoAtivacao, setCodigoAtivacao] = useState('');
   const [email, setEmail] = useState('');
 
@@ -16,6 +20,8 @@ export default function AtivarUsuario() {
     })
     .then((response) => {
       console.log('Usuário ativado com sucesso.');
+      notifySuccess('Para nossa alegria, seu código foi confirmado! Aproveite sua conta.')
+      navigate('/');
       // Notificação de sucesso
     })
     .catch((error) => {
