@@ -16,7 +16,7 @@ export default function NovaSenha() {
 
 
   function novSenha() {
-    axios.post("http://localhost:8080/api/usuario/recuperar-senha", null, {
+    axios.post("http://localhost:8080/api/usuario/redefinir-senha", null, {
       params: {
         email: email,
         token: token,
