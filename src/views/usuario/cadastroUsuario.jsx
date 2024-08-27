@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function CadastroUsuario() {
 
-  const [carregando, setcarregando] = useState(false);
   const { state } = useLocation();
   const navigate = useNavigate();
   const [idUsuario, setIdUsuario] = useState();
@@ -31,7 +30,7 @@ export default function CadastroUsuario() {
 
   function salvar() {
 
-    setcarregando(true);
+    
 
     let usuarioRequest = {
       email: email,
@@ -53,12 +52,12 @@ export default function CadastroUsuario() {
           console.log('Usuário cadastrado com sucesso.') 
           notifySuccess('Para nossa alegria, suas informações foram aceitas, aguarde nosso código de ativação em seu e-mail!')
           navigate('/Codigo-conta');
-          setcarregando(false);
+         
 
         })
         .catch((error) => {  
           notifyError(error.response.data.message);
-          setcarregando(false);
+          
         });
 
     }
@@ -124,7 +123,6 @@ export default function CadastroUsuario() {
 
         </div>
 
-        {carregando && <div className="bolinhaGirando"></div>}
       </div>
 
     </div>

@@ -12,29 +12,22 @@ export default function EsqueceuSenhaEmail() {
 
 
   function conferindo() {
-
-    if (email !== '') {
-
-      let authenticationRequest = {
+    axios.post("http://localhost:8080/api/usuario/recuperar-senha", null, {
+      params: {
         email: email
       }
-
-      axios.post("http://localhost:8080/api/usuario", authenticationRequest)
-
-        .then((response) => {
-          // Se o username for válido, envia a requisição para recuperar a senha
-          return axios.post("http://localhost:8080/recuperar-senha", null, {
-            params: { email: email }
-          });
-        })
-        .then((response) => {
-          navigate("/Senha-Nova");
-        })
-        .catch((error) => {
-
-          notifyError('Usuário não encontrado com esse e-mail')
-        })
-    }
+    })
+    .then((response) => {
+      notifySuccess('Aguarde nosso E-mail para a mudança de senha.');
+      navigate('/')
+      // Notificação de sucesso
+    })
+    .catch((error) => {
+      notifyError("Uhmm... Não encontramos esse Email aqui!");
+      console.error(error);
+      
+      // Notificação de erro
+    });
   }
 
   return (
