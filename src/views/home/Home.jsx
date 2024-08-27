@@ -4,15 +4,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Input, Message, Segment } from 'semantic-ui-react';
 import { notifyError } from '../../views/util/Util';
 import { registerSuccessfulLoginForJwt } from '../util/AuthenticationService';
+import Loader from '../../Loader'; 
 
 export default function Home() {
 
     const navigate = useNavigate();
-
+    const [loading, setLoading] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     function entrar() {
+        setLoading(true); 
 
         if (username !== '' && password !== '') {
 
@@ -26,11 +28,13 @@ export default function Home() {
 
                     registerSuccessfulLoginForJwt(response.data.token, response.data.expiration, response.data.username)
                     navigate("/home-usuario");
+                    setLoading(false);
 
                 })
                 .catch((error) => {
 
-                    notifyError('Usuário não encontrado')
+                    notifyError('Usuário não encontrado');
+                    setLoading(false);
                 })
         }
     }
@@ -192,7 +196,7 @@ export default function Home() {
                     </Grid.Row>
                 </Grid>
             </container>
-
+        {loading && <Loader />} 
         </div>
     )
 }

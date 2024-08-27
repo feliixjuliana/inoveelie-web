@@ -5,6 +5,7 @@ import InputMask from "react-input-mask";
 import { Grid, GridColumn, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
 import { mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../../Loader'; 
 
 /*const options = [
     { key: 'Conserto', value: 'Conserto', text: 'Conserto' },
@@ -30,6 +31,7 @@ export default function Home() {
     const [largura, setLargura] = useState();
     const [comprimentoSaia, setComprimentoSaia] = useState();
     const [listaTipo, setListaTipo] = useState();
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (state != null && state.id != null) {
@@ -62,6 +64,8 @@ export default function Home() {
 
     function salvar() {
 
+        setLoading(true); 
+
         let pedidoRequest = {
             idTipo: idTipo,
             nomeCliente: nomeCliente,
@@ -81,8 +85,12 @@ export default function Home() {
         if (idPedido != null) { //Alteração:
 
             axios.put("http://localhost:8080/api/pedido/" + idPedido, pedidoRequest)
-                .then((response) => { console.log('Pedido alterado com sucesso.') })
-                .catch((error) => { console.log('Erro ao alter um pedido.') })
+                .then((response) => { console.log('Pedido alterado com sucesso.') 
+                    setLoading(false);
+                })
+                .catch((error) => { console.log('Erro ao alter um pedido.') 
+                    setLoading(false);
+                })
 
         } else { //Cadastro:
 
@@ -90,7 +98,7 @@ export default function Home() {
                 .then((response) => {
                     notifySuccess('Pedido cadastrado com sucesso.')
                     navigate('/home-usuario');
-
+                    setLoading(false);
                 }
 
                 )
@@ -98,7 +106,7 @@ export default function Home() {
                     if (error.response) {
                         notifyError(error.response.data.message);
                         console.error('Erro', error);
-
+                        setLoading(false);
                     }
                 })
         }
@@ -113,12 +121,14 @@ export default function Home() {
         };
 
         axios.post('/pedidos/enviar-comprovante', pedidoRequest)
-            .then(() => {
+            .then((response) => {
                 alert('Comprovante enviado com sucesso!');
+                setLoading(false);
             })
             .catch((error) => {
                 console.error('Erro ao enviar o comprovante:', error);
                 alert('Falha ao enviar o comprovante.');
+                setLoading(false);
             });
     }
 
@@ -264,7 +274,7 @@ export default function Home() {
                     </Button>
                 </div>
             </div>
-
+            {loading && <Loader />} 
         </div>
     )
 }

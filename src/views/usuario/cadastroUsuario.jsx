@@ -4,6 +4,7 @@ import { Link, Navigate, useLocation } from "react-router-dom";
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input } from 'semantic-ui-react';
 import { notifyError, notifySuccess } from "../util/Util";
 import { useNavigate } from 'react-router-dom';
+import Loader from '../../Loader'; 
 
 
 export default function CadastroUsuario() {
@@ -14,6 +15,7 @@ export default function CadastroUsuario() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmaPassword, setConfirmaPassword] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (state != null && state.id != null) {
@@ -29,7 +31,7 @@ export default function CadastroUsuario() {
   }, [state])
 
   function salvar() {
-
+    setLoading(true); 
     
 
     let usuarioRequest = {
@@ -48,14 +50,15 @@ export default function CadastroUsuario() {
     } else { //Cadastro:
       axios.post("http://localhost:8080/api/usuario", usuarioRequest)
         .then((response) => {
-          
           console.log('Usuário cadastrado com sucesso.') 
           notifySuccess('Para nossa alegria, suas informações foram aceitas, aguarde nosso código de ativação em seu e-mail!')
           navigate('/Codigo-conta');
+          setLoading(false);
          
 
         })
         .catch((error) => {  
+          setLoading(false);
           notifyError(error.response.data.message);
           
         });
@@ -123,6 +126,7 @@ export default function CadastroUsuario() {
 
         </div>
 
+        {loading && <Loader />} 
       </div>
 
     </div>

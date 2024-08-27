@@ -5,6 +5,7 @@ import InputMask from "react-input-mask";
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
 import {mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../../Loader'; 
 
 export default function FormCliente() {
 
@@ -13,6 +14,7 @@ export default function FormCliente() {
   const [idCliente, setIdCliente] = useState();
   const [nomeCliente, setNomeCliente] = useState();
   const [numeroCliente, setNumeroCliente] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
       if (state != null && state.id != null) {
@@ -26,6 +28,7 @@ export default function FormCliente() {
   }, [state])
 
   function salvar() {
+    setLoading(true); 
 
       let clienteRequest = {
           nomeCliente: nomeCliente,
@@ -35,20 +38,26 @@ export default function FormCliente() {
       if (idCliente != null) { //Alteração:
 
           axios.put("http://localhost:8080/api/cliente/" + idCliente, clienteRequest)
-              .then((response) => { console.log('Cliente alterado com sucesso.') })
-              .catch((error) => { console.log('Erro ao alter um cliente.') })
+              .then((response) => { console.log('Cliente alterado com sucesso.') 
+                setLoading(false);
+              })
+              .catch((error) => { console.log('Erro ao alter um cliente.') 
+                setLoading(false);
+              })
 
       } else { //Cadastro:
 
           axios.post("http://localhost:8080/api/cliente", clienteRequest)
               .then((response) => { notifySuccess('Cliente cadastrado com sucesso.') 
                 navigate('/List-Cliente');
+                setLoading(false);
 
               }
                    
             )
               .catch((error) => { if (error.response) {
                   notifyError(error.response.data.message)
+                  setLoading(false);
                   }
                    })
       }
