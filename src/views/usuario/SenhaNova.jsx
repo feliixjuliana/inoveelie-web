@@ -8,7 +8,7 @@ import Loader from '../../Loader';
 
 
 
-export default function NovaSenha() {
+export default function SenhaNova() {
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -21,8 +21,8 @@ export default function NovaSenha() {
 
   function novSenha() {
     setLoading(true); 
-
-    axios.post("http://localhost:8080/api/usuario/redefinir-senha", null, {
+    
+    axios.post("http://localhost:8080/api/usuario/recuperar-senha", null, {
       params: {
         email: email,
         //token: token,
