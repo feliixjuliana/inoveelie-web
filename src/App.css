@@ -629,6 +629,28 @@
           animation: fadeIn 1s ease-in-out forwards;
         }
 
-            /******************* Bolinha *****************/
+            /******************* Home, Form de Data *****************/
 
             
+.selectdata{
+ padding: px !important;
+ background-color: #d895a200;
+ border-radius: 0%;
+ border: #d895a200;
+ color: #E78F99;
+ font-family: cursive;
+ font-size: 20px;
+ margin: 20px;
+}
+
+/*.listaPedidos{
+ background-color: #fff;
+ margin-right: 20px;
+ display: flex;
+ align-items: center;
+ 
+}
+
+.listaPedidos table {
+  background-color: #fffcfa00;
+} */
