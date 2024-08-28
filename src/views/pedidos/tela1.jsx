@@ -160,25 +160,18 @@ export default function Home() {
 
                                     <p>Telefone:</p>
                                     <Form.Input type="text"
-                                        value={numeroCliente} >
-                                        <InputMask
-                                            mask="(99) 9 9999-9999"
-                                            maskChar={null}
-                                            onChange={e => setNumeroCliente(e.target.value)}
-                                        />
+                                        value={numeroCliente}
+                                        onChange={e => setNumeroCliente(e.target.value)}
+                                        >
+                                        
                                     </Form.Input>
 
                                     <p>Data de Entrega:</p>
                                     <Form.Input type="text"
                                         value={dataEntrega}
+                                        onChange={e => setDataEntrega(e.target.value)}
 
                                     >
-                                        <InputMask
-                                            mask="99/99/9999"
-                                            maskChar={null}
-
-                                            onChange={e => setDataEntrega(e.target.value)}
-                                        />
 
                                     </Form.Input>
 

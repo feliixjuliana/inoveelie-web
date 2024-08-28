@@ -33,6 +33,10 @@ export default function CadastroUsuario() {
     axios
       .get('http://localhost:8080/api/usuario/getUsuario/' + username)
       .then((response) => {
+
+        console.log('teste');
+        console.log('usuario é = ' + response.data);
+
         setIdUsuario(response.data.id);
         setEmail(response.data.email);
         setPassword(response.data.password);
@@ -43,19 +47,22 @@ export default function CadastroUsuario() {
   }, [state]);
 
   function salvar() {
-    let usuarioRequest = {
-      email: email,
-      password: password,
-      confirmaPassword: confirmaPassword,
-      nome: nome,
-      sobrenome: sobrenome,
-    };
+
+    let formData = new FormData();
+
+    if (nome !== undefined) {
+        formData.append('nome', nome);
+    }
+    if (sobrenome !== undefined) {
+        formData.append('sobrenome', sobrenome);
+    }
+
     console.log('Id Usuario = ' + idUsuario);
     if (idUsuario != null) {
       //Alteração:
 
       axios
-        .put('http://localhost:8080/api/usuario/' + idUsuario, usuarioRequest)
+        .post('http://localhost:8080/api/usuario/update/' + idUsuario, formData)
         .then((response) => {
           console.log('Cliente alterado com sucesso.');
           notifySuccess('Suas informações foram adicionadas com sucesso!');
