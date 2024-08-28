@@ -4,14 +4,20 @@ import { Link, useLocation } from "react-router-dom";
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
 import { notifyError, notifySuccess } from "../util/Util";
 import { useNavigate } from 'react-router-dom';
+import Loader from '../../Loader'; 
+
+
 
 export default function EsqueceuSenhaEmail() {
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
 
 
   function conferindo() {
+    setLoading(true); 
+
     axios.post("http://localhost:8080/api/usuario/recuperar-senha", null, {
       params: {
         email: email
@@ -20,11 +26,13 @@ export default function EsqueceuSenhaEmail() {
     .then((response) => {
       notifySuccess('Aguarde nosso E-mail para a mudança de senha.');
       navigate('/')
+      setLoading(false);
       // Notificação de sucesso
     })
     .catch((error) => {
       notifyError("Uhmm... Não encontramos esse Email aqui!");
       console.error(error);
+      setLoading(false);
       
       // Notificação de erro
     });
@@ -70,7 +78,7 @@ export default function EsqueceuSenhaEmail() {
         </div>
 
       </div>
-
+      {loading && <Loader />} 
     </div>
   );
 }

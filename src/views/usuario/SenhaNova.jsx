@@ -4,22 +4,28 @@ import { Link, useLocation } from "react-router-dom";
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
 import {mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../../Loader'; 
+
+
 
 export default function NovaSenha() {
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  const [token, setToken] = useState('');
+  //const [token, setToken] = useState('');
   const [novaSenha, setNovaSenha] = useState('');
+  const [loading, setLoading] = useState(false);
   //const [confirmaSenha, setConfirmaSenha] = useState('');
 
 
 
   function novSenha() {
-    axios.post("http://localhost:8080/api/usuario/recuperar-senha", null, {
+    setLoading(true); 
+
+    axios.post("http://localhost:8080/api/usuario/redefinir-senha", null, {
       params: {
         email: email,
-        token: token,
+        //token: token,
         novaSenha: novaSenha,
         //confirmaSenha: confirmaSenha
       }
@@ -27,11 +33,13 @@ export default function NovaSenha() {
     .then((response) => {
       notifySuccess('Sua senha foi alterada com sucesso');
       navigate("/");
+      setLoading(false);
       // Notificação de sucesso
     })
     .catch((error) => {
       notifyError("Uhmm... Erro");
       console.error(error);
+      setLoading(false);
       
       // Notificação de erro
     });
@@ -99,7 +107,7 @@ export default function NovaSenha() {
             </div>
     
           </div>
-    
+          {loading && <Loader />} 
         </div>
       );
     }
