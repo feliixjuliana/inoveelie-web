@@ -25,7 +25,7 @@ export default function EsqueceuSenhaEmail() {
     })
     .then((response) => {
       notifySuccess('Aguarde nosso E-mail para a mudança de senha.');
-      navigate('/')
+      navigate('/Senha-Nova')
       setLoading(false);
       // Notificação de sucesso
     })

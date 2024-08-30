@@ -12,7 +12,7 @@ export default function SenhaNova() {
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  //const [token, setToken] = useState('');
+  const [token, setToken] = useState('');
   const [novaSenha, setNovaSenha] = useState('');
   const [loading, setLoading] = useState(false);
   //const [confirmaSenha, setConfirmaSenha] = useState('');
@@ -25,7 +25,7 @@ export default function SenhaNova() {
     axios.post("http://localhost:8080/api/usuario/redefinir-senha", null, {
       params: {
         email: email,
-        //token: token,
+        token: token,
         novaSenha: novaSenha,
         //confirmaSenha: confirmaSenha
       }
@@ -77,13 +77,13 @@ export default function SenhaNova() {
               </div>
 
               <div className="input-container">
-                <p>Repita a Senha:</p>
+                <p>Token</p>
                 <Input
-                 type="password"
+                 //type="password"
                   fluid
-                  placeholder='Repita a Senha'
-                  //value = {confirmaSenha}
-                  //onChange={e => setConfirmaSenha(e.target.value)}
+                  placeholder='Insira o Token'
+                  value = {token}
+                  onChange={e => setToken(e.target.value)}
                   
                 />
               </div>
