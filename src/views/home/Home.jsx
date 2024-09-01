@@ -100,6 +100,8 @@ export default function Home() {
                                 <p className="Esqueceu">
 
                                     Esqueceu a Senha?</p></Link>
+                                    
+                            {loading && <Loader />} 
 
                             <div className="areadosbotoeslogin">
                                 <Button 
@@ -196,7 +198,7 @@ export default function Home() {
                     </Grid.Row>
                 </Grid>
             </container>
-        {loading && <Loader />} 
+
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
-import { Grid, Button, Container, Divider, Table, Modal, Header, FormSelect, Icon, Input } from 'semantic-ui-react';
+import { Grid, Button, Table,  FormSelect, Icon } from 'semantic-ui-react';
 
 const options = [
     { key: 'editarPerfil', value: 'editarPerfil', text: 'Editar Perfil' },

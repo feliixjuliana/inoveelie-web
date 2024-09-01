@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
+import { Button, Input} from 'semantic-ui-react';
 import {mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../../Loader'; 
@@ -115,9 +115,9 @@ export default function FormMateriais() {
               </Link>
     
             </div>
-    
+              {loading && <Loader />} 
           </div>
-          {loading && <Loader />} 
+        
         </div>
       );
     }

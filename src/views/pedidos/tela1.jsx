@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import InputMask from "react-input-mask";
-import { Grid, GridColumn, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, FormTextArea } from 'semantic-ui-react';
-import { mensagemErro, notifyError, notifySuccess } from '../../views/util/Util';
+import { Grid, GridColumn, Button, Form, FormSelect} from 'semantic-ui-react';
+import { notifyError, notifySuccess } from '../../views/util/Util';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../../Loader'; 
 
@@ -232,7 +231,8 @@ export default function Home() {
 
                             </GridColumn>
                         </Grid.Row>
-                    </Grid>
+                    </Grid> {
+                    loading && <Loader />} 
                 </div>
 
                 <div className="botoesdenaveg">
@@ -243,7 +243,10 @@ export default function Home() {
                     </Link>
 
                     <Link to={'/Form-P-Materiais'}>
-                        <Button className="botaovoltar">
+                        <Button className="botaovoltar"
+                        onClick={() => salvar()}
+                        >
+                        
                             Salvar Materiais
                         </Button>
                     </Link>
@@ -264,10 +267,12 @@ export default function Home() {
                     >
                         Comprovante
 
-                    </Button>
+                    </Button> 
+                    
+                   
                 </div>
             </div>
-            {loading && <Loader />} 
+           
         </div>
     )
 }

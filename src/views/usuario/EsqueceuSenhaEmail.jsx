@@ -57,7 +57,9 @@ export default function EsqueceuSenhaEmail() {
             />
           </div>
 
+            {loading && <Loader />} 
         </div>
+        
 
 
         <div className="botoesdenaveg">
@@ -78,7 +80,7 @@ export default function EsqueceuSenhaEmail() {
         </div>
 
       </div>
-      {loading && <Loader />} 
+ 
     </div>
   );
 }

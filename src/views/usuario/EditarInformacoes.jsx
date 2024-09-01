@@ -2,21 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import InputMask from 'react-input-mask';
-import {
-  Grid,
-  Button,
-  Container,
-  Divider,
-  Form,
-  FormGroup,
-  FormRadio,
-  FormSelect,
-  Icon,
-  Input,
-  FormTextArea,
-} from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 import { notifyError, notifySuccess } from '../util/Util';
 import { getUsername } from '../util/AuthenticationService';
+import Loader from '../../Loader'; 
 
 export default function CadastroUsuario() {
   const { state } = useLocation();
@@ -26,6 +15,7 @@ export default function CadastroUsuario() {
   const [confirmaPassword, setConfirmaPassword] = useState();
   const [nome, setNome] = useState();
   const [sobrenome, setSobrenome] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let username = getUsername();
@@ -47,6 +37,7 @@ export default function CadastroUsuario() {
   }, [state]);
 
   function salvar() {
+    setLoading(true);
 
     let formData = new FormData();
 
@@ -66,12 +57,14 @@ export default function CadastroUsuario() {
         .then((response) => {
           console.log('Cliente alterado com sucesso.');
           notifySuccess('Suas informações foram adicionadas com sucesso!');
+          setLoading(false);
         })
         .catch((error) => {
           console.log('Erro ao alterar suas informações!.');
           notifyError(
             'Uhmmm! Ocorreu um erro ao salvar suas alterações, tente novamente e se atente aos campos.',
           );
+          setLoading(false);
         });
     }
   }
@@ -100,6 +93,7 @@ export default function CadastroUsuario() {
               onChange={(e) => setSobrenome(e.target.value)}
             />
           </div>
+          {loading && <Loader />} 
         </div>
 
         <div className="botoesdenaveg">

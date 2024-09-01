@@ -1,8 +1,30 @@
-import React from "react";
-import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input, GridColumn } from 'semantic-ui-react';
+import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { Button, Form, Table, Icon } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
+import Loader from '../../Loader'; 
 
 export default function Home() {
+
+
+    const [lista, setLista] = useState([]);
+    const [openModal, setOpenModal] = useState(false);
+    const [idRemover, setIdRemover] = useState();
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        carregarLista();
+    }, [])
+
+    function carregarLista() {
+
+        setLoading(true);
+
+        axios.get("http://localhost:8080/api/pedido")
+            .then((response) => {
+                setLista(response.data)
+            })
+    }
 
     return (
 
@@ -31,21 +53,28 @@ export default function Home() {
                 </div>
 
                 <div className="botoesdenaveg">
-                    <Link to={'/Form-Pedidos'}>
-                        <Button className="botaovoltar">
-                            Voltar
-                        </Button>
+
+                  {lista.map(pedido => (
+                             
+                    <Link to="/Form-Pedidos" state={{ id: pedido.id }} key={pedido.id}> 
+                    <Button className="botaovoltar">
+                    Voltar
+                </Button> 
                     </Link>
+                   
+                  ))}
+                   
 
                     <Button className="botaoentrar"
+                    
                     >
                         Salvar 
 
                     </Button>
 
-
-
                 </div>
+
+                {loading && <Loader />} 
             </div>
 
         </div>

@@ -87,8 +87,10 @@ export default function SenhaNova() {
                   
                 />
               </div>
-    
+
+              {loading && <Loader />} 
             </div>
+            
     
     
             <div className="botoesdenaveg">
@@ -107,7 +109,7 @@ export default function SenhaNova() {
             </div>
     
           </div>
-          {loading && <Loader />} 
+
         </div>
       );
     }
