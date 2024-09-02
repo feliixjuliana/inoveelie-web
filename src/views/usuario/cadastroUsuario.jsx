@@ -108,6 +108,8 @@ export default function CadastroUsuario() {
             />
           </div>
 
+          {loading && <Loader />} 
+          
         </div>
 
 
@@ -126,7 +128,7 @@ export default function CadastroUsuario() {
 
         </div>
 
-        {loading && <Loader />} 
+
       </div>
 
     </div>

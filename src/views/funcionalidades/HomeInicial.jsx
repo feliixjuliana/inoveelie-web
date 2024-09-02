@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
-import { Grid, Button, Table,  FormSelect, Icon } from 'semantic-ui-react';
+import { Grid, Button, Table, FormSelect, Icon } from 'semantic-ui-react';
 
 const options = [
     { key: 'editarPerfil', value: 'editarPerfil', text: 'Editar Perfil' },
@@ -56,12 +56,15 @@ export default function HomeInicial() {
         <div className="homeUsuario">
 
             <div className="rodapedoperfil">
-                <FormSelect
-                    fluid
-                    options={options}
-                    placeholder='Perfil'
-                    onChange={handleChange}
-                />
+                <div className="tentativaIconWrapper">
+                    <FormSelect
+                        className="tentativaIconSelect"
+                        fluid
+                        options={options}
+                        placeholder=''
+                        onChange={handleChange}
+                    />
+                </div>
             </div>
 
             <div className="gradescolun">
@@ -106,25 +109,25 @@ export default function HomeInicial() {
                                     <Table.Header>
                                         <Table.Row>
                                             <Table.HeaderCell>Cliente</Table.HeaderCell>
-                                            <Table.HeaderCell>Entrega</Table.HeaderCell>
-                                            <Table.HeaderCell textAlign='center'>Ações</Table.HeaderCell>
+                                            <Table.HeaderCell>Data da Entrega</Table.HeaderCell>
+                                            <Table.HeaderCell textAlign='center'>Status</Table.HeaderCell>
                                         </Table.Row>
                                     </Table.Header>
 
                                     <Table.Body>
                                         {pedidosFiltrados.map(pedido => (
                                             <Table.Row key={pedido.id}>
-                                                <Table.Cell>{pedido.nomeCliente}</Table.Cell>
+                                                <Table.Cell><Link to="/Form-Pedidos" state={{ id: pedido.id }} className="linkPedidos">{pedido.nomeCliente} </Link> </Table.Cell>
                                                 <Table.Cell>{pedido.dataEntrega}</Table.Cell>
                                                 <Table.Cell textAlign='center'>
-                                                    <Button
-                                                        inverted
-                                                        circular
-                                                        color='pink'
-                                                        title='Clique aqui para editar os dados deste material'
-                                                        icon>
-                                                        <Link to="/Form-Pedidos" state={{ id: pedido.id }} style={{ color: 'pink' }}> <Icon name='edit' /> </Link>
-                                                    </Button> &nbsp;
+
+                                                    <FormSelect
+                                                        className="SelectStatus"
+                                                        fluid
+                                                        options
+                                                        placeholder=''
+                                                        onChange
+                                                    />
                                                 </Table.Cell>
                                             </Table.Row>
                                         ))}
@@ -136,6 +139,8 @@ export default function HomeInicial() {
                     </Grid.Row>
                 </Grid>
             </div>
+
+
 
 
 

@@ -39,6 +39,7 @@ export default function FormCliente() {
 
           axios.put("http://localhost:8080/api/cliente/" + idCliente, clienteRequest)
               .then((response) => { console.log('Cliente alterado com sucesso.') 
+                navigate('/List-Cliente');
                 setLoading(false);
               })
               .catch((error) => { console.log('Erro ao alter um cliente.') 

@@ -39,8 +39,12 @@ export default function FormMateriais() {
       if (idMaterial != null) { //Alteração:
 
           axios.put("http://localhost:8080/api/material/" + idMaterial, materialRequest)
-              .then((response) => { console.log('Material alterado com sucesso.') })
-              .catch((error) => { console.log('Erro ao alter um material.') })
+              .then((response) => { console.log('Material alterado com sucesso.') 
+                navigate('/list-materiais');
+              })
+              .catch((error) => { console.log('Erro ao alter um material.') 
+                notifyError("Perdão, houve algum erro ao salvar as alterações.")
+              })
 
       } else { //Cadastro:
 

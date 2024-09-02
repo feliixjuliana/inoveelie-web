@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import InputMask from 'react-input-mask';
 import { Grid, GridColumn, Button, Form, FormSelect} from 'semantic-ui-react';
 import { notifyError, notifySuccess } from '../../views/util/Util';
 import { useNavigate } from 'react-router-dom';
@@ -40,7 +41,7 @@ export default function Home() {
                 setIdTipo(response.data.tipo.id)
                 setNomeCliente(response.data.nomeCliente);
                 setNumeroCliente(response.data.numeroCliente);
-                setDataEntrega(response.data.dataEntrega);
+                setDataEntrega(formatarData(response.data.dataEntrega));
                 setValor(response.data.valor);
                 setDescricao(response.data.descricao);
                 setAlturaCava(response.data.alturaCava);
@@ -60,6 +61,16 @@ export default function Home() {
        })
 
     }, [state])
+
+    function formatarData(dataParam) {
+
+        if (dataParam === null || dataParam === '' || dataParam === undefined) {
+            return ''
+        }
+
+        let arrayData = dataParam.split('-');
+        return arrayData[2] + '/' + arrayData[1] + '/' + arrayData[0];
+    }
 
     function salvar() {
 
@@ -84,10 +95,12 @@ export default function Home() {
         if (idPedido != null) { //Alteração:
 
             axios.put("http://localhost:8080/api/pedido/" + idPedido, pedidoRequest)
-                .then((response) => { console.log('Pedido alterado com sucesso.') 
+                .then((response) => { notifySuccess('Pedido alterado com sucesso.') 
                     setLoading(false);
+                    navigate('/home-usuario');
+
                 })
-                .catch((error) => { console.log('Erro ao alter um pedido.') 
+                .catch((error) => { notifyError('Erro ao alter um pedido.') 
                     setLoading(false);
                 })
 
@@ -167,11 +180,14 @@ export default function Home() {
 
                                     <p>Data de Entrega:</p>
                                     <Form.Input type="text"
-                                        value={dataEntrega}
-                                        onChange={e => setDataEntrega(e.target.value)}
+                                        
 
                                     >
-
+                                        <InputMask
+                                        mask="99/99/9999"
+                                        value={dataEntrega}
+                                        onChange={e => setDataEntrega(e.target.value)}
+                                    />
                                     </Form.Input>
 
                                     <p>Valor:</p>

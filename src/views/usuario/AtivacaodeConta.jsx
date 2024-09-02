@@ -59,6 +59,7 @@ export default function AtivarUsuario() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+          {loading && <Loader />} 
         </div>
 
         <div className="botoesdenaveg">
@@ -71,7 +72,7 @@ export default function AtivarUsuario() {
             </Button>
           </Link>
         </div>
-        {loading && <Loader />} 
+
       </div>
     </div>
   );
