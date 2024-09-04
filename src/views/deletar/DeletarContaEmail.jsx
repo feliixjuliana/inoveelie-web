@@ -14,11 +14,7 @@ export default function DeletarContaEmail() {  // Nome do componente começando 
   function conferindo() {
     setLoading(true); 
 
-    axios.post("http://localhost:8080/api/usuario/iniciar-exclusao-conta", null, {
-      params: {
-        email: email
-      }
-    })
+    axios.post("http://localhost:8080/api/usuario/iniciar-exclusao-conta/"+email)
     .then((response) => {
       notifySuccess('Aguarde nosso E-mail para a exclusão de conta.');
       navigate('/Deletando');

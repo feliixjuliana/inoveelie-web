@@ -19,6 +19,10 @@ export default function Delentando() {
 
   function novSenha() {
     setLoading(true); 
+    console.log('email=' + email);
+    console.log('token=' + token )
+
+    //delete axios.defaults.headers.common['Authorization'];
 
     axios.post("http://localhost:8080/api/usuario/confirmar-exclusao-conta", null, {
       params: {
