@@ -4,7 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Input, Message, Segment } from 'semantic-ui-react';
 import { notifyError } from '../../views/util/Util';
 import { registerSuccessfulLoginForJwt } from '../util/AuthenticationService';
-import Loader from '../../Loader'; 
+import Loader from '../../Loader';
+import { GoogleLogin } from '@react-oauth/google';
 
 export default function Home() {
 
@@ -14,7 +15,7 @@ export default function Home() {
     const [password, setPassword] = useState('');
 
     function entrar() {
-        setLoading(true); 
+        setLoading(true);
 
         if (username !== '' && password !== '') {
 
@@ -100,14 +101,22 @@ export default function Home() {
                                 <p className="Esqueceu">
 
                                     Esqueceu a Senha?</p></Link>
-                                    
-                            {loading && <Loader />} 
+
+                            {loading && <Loader />}
 
                             <div className="areadosbotoeslogin">
-                                <Button 
-                                onClick={() => entrar()} 
+                               
+                                <GoogleLogin
+                                    onSuccess={credentialResponse => {
+                                        console.log(credentialResponse);
+                                    }}
+                                    onError={() => {
+                                        console.log('Login Failed');
+                                    }}
+                                /> 
+                                <Button
+                                    onClick={() => entrar()}
                                 > Entrar</Button>
-                                <Button >Entrar Com o Google</Button>
                             </div>
 
 

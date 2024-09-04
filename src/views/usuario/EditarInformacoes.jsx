@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import InputMask from 'react-input-mask';
-import { Button, Input } from 'semantic-ui-react';
+import { Button, Input, Container, Divider, Icon, Table, Modal, Header  } from 'semantic-ui-react';
 import { notifyError, notifySuccess } from '../util/Util';
 import { getUsername } from '../util/AuthenticationService';
 import Loader from '../../Loader'; 
@@ -16,6 +16,9 @@ export default function CadastroUsuario() {
   const [nome, setNome] = useState();
   const [sobrenome, setSobrenome] = useState();
   const [loading, setLoading] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+
+
 
   useEffect(() => {
     let username = getUsername();
@@ -68,6 +71,12 @@ export default function CadastroUsuario() {
         });
     }
   }
+
+  function confirmaRemover() {
+    setOpenModal(true)
+
+}
+
   return (
     <div className="corpinhodocadastro">
       <div className="containerbranco">
@@ -105,6 +114,36 @@ export default function CadastroUsuario() {
           </Link>
         </div>
       </div>
+
+      
+      <div className="excluir"
+      onClick={() => confirmaRemover()}>
+        
+      </div>
+      
+
+      <Modal
+                basic
+                onClose={() => setOpenModal(false)}
+                onOpen={() => setOpenModal(true)}
+                open={openModal}
+            >
+                <Header icon>
+                    <Icon name='trash' />
+                    <div style={{ marginTop: '5%' }}> Tem certeza que deseja remover sua conta? </div>
+                </Header>
+                <Modal.Actions>
+                    <Button basic color='red' inverted onClick={() => setOpenModal(false)}>
+                        <Icon name='remove' /> Não
+                    </Button>
+
+                    <a href="/DeletarEmail">
+                    <Button color='pink'>
+                        <Icon name='checkmark' /> Sim
+                    </Button>
+                    </a>
+                </Modal.Actions>
+            </Modal>
     </div>
   );
 }

@@ -56,15 +56,26 @@ export default function HomeInicial() {
         <div className="homeUsuario">
 
             <div className="rodapedoperfil">
-                <div className="tentativaIconWrapper">
-                    <FormSelect
-                        className="tentativaIconSelect"
-                        fluid
-                        options={options}
-                        placeholder=''
-                        onChange={handleChange}
-                    />
+
+
+                <a href="/">
+                    <div className="voltar">
+
+                    </div>
+
+                </a>
+
+                <div className="ficamNaDireita">
+
+
+                    <Link to={{ pathname: "/Edit-Infor", state: { id: idUsuario } }}>
+                        <div className="perfil">
+                            
+                        </div>
+                    </Link>
+                    <div></div>
                 </div>
+
             </div>
 
             <div className="gradescolun">

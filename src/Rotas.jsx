@@ -14,7 +14,12 @@ import FormCliente from './views/cliente/FormCliente';
 import ListCliente from './views/cliente/ListCliente';
 import FormPedidos from './views/pedidos/tela1';
 import FormPedidoMateriais from './views/pedidos/tela2';
+import Deletando from './views/deletar/Deletando';
+import DeletarEmail from './views/deletar/DeletarContaEmail';
+
+
 import { ProtectedRoute } from './views/util/ProtectedRoute';
+
 import cadastroSucesso from './views/usuario/Felicitacoes';
 
 
@@ -37,6 +42,9 @@ function Rotas() {
                 <Route path='/List-Materiais' element={ <ProtectedRoute><ListMateriais/> </ProtectedRoute>} />
                 <Route path='/Form-Pedidos' element={ <ProtectedRoute><FormPedidos/> </ProtectedRoute>} />
                 <Route path='/Form-P-Materiais' element={ <ProtectedRoute><FormPedidoMateriais/> </ProtectedRoute>} />
+                <Route path='/Deletando' element={ <ProtectedRoute><Deletando/> </ProtectedRoute>} />
+                <Route path='/DeletarEmail' element={ <ProtectedRoute><DeletarEmail/> </ProtectedRoute>} />
+
                 <Route path='/Sucesso' element={ <cadastroSucesso/>} />
 
 

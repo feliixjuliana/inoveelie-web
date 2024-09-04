@@ -4,7 +4,7 @@ import { Link, Navigate, useLocation } from "react-router-dom";
 import { Grid, Button, Container, Divider, Form, FormGroup, FormRadio, FormSelect, Icon, Input } from 'semantic-ui-react';
 import { notifyError, notifySuccess } from "../util/Util";
 import { useNavigate } from 'react-router-dom';
-import Loader from '../../Loader'; 
+import Loader from '../../Loader';
 
 
 export default function CadastroUsuario() {
@@ -16,6 +16,23 @@ export default function CadastroUsuario() {
   const [password, setPassword] = useState();
   const [confirmaPassword, setConfirmaPassword] = useState();
   const [loading, setLoading] = useState(false);
+  const [showHints, setShowHints] = useState(false);
+  const [showHints2, setShowHints2] = useState(false);
+
+
+  const handleFocus = () => {
+    setShowHints(true);
+  };
+
+  const testando = () => {
+    setShowHints2(true);
+  };
+
+  const handleBlur = () => {
+    setShowHints(false);
+    setShowHints2(false);
+
+  };
 
   useEffect(() => {
     if (state != null && state.id != null) {
@@ -31,8 +48,9 @@ export default function CadastroUsuario() {
   }, [state])
 
   function salvar() {
-    setLoading(true); 
-    
+    setLoading(true);
+
+
 
     let usuarioRequest = {
       email: email,
@@ -50,17 +68,18 @@ export default function CadastroUsuario() {
     } else { //Cadastro:
       axios.post("http://localhost:8080/api/usuario", usuarioRequest)
         .then((response) => {
-          console.log('Usuário cadastrado com sucesso.') 
+          console.log('Usuário cadastrado com sucesso.')
           notifySuccess('Para nossa alegria, suas informações foram aceitas, aguarde nosso código de ativação em seu e-mail!')
           navigate('/Codigo-conta');
           setLoading(false);
-         
+
+
 
         })
-        .catch((error) => {  
+        .catch((error) => {
           setLoading(false);
           notifyError(error.response.data.message);
-          
+
         });
 
     }
@@ -94,8 +113,17 @@ export default function CadastroUsuario() {
               placeholder='Senha'
               value={password}
               onChange={e => setPassword(e.target.value)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
           </div>
+
+          {showHints && (
+            <div className="password-hints">
+              <p>É obrigatório o uso tanto de letras como números.</p>
+            </div>
+          )}
+
 
           <div className="input-container">
             <p>Repita a Senha:</p>
@@ -105,11 +133,21 @@ export default function CadastroUsuario() {
               placeholder='Senha'
               value={confirmaPassword}
               onChange={e => setConfirmaPassword(e.target.value)}
+              onFocus={testando}
+              onBlur={handleBlur}
             />
           </div>
 
-          {loading && <Loader />} 
-          
+          {showHints2 && (
+            <div className="password-hints">
+              <p>É obrigatório o uso tanto de letras como números.</p>
+            </div>
+          )}
+
+          {loading && <Loader />}
+
+
+
         </div>
 
 

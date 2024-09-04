@@ -21,49 +21,49 @@
   left: 0;
   display: flex;
   justify-content: space-between;
-  width: 100%; 
+  width: 100%;
   align-items: start;
-  padding: 20px 40px; 
+  padding: 20px 40px;
   z-index: 1000;
 }
 
-.direcaoteladecadastro{
-      border-radius: 24px;
-      border: none;
-      padding: 15px;
-      background-color: #fffcfa; 
-      font-size: 16px; 
-      transition: background-color 0.10s ease, color 0.10s ease;
-      cursor: pointer; 
+.direcaoteladecadastro {
+  border-radius: 24px;
+  border: none;
+  padding: 15px;
+  background-color: #fffcfa;
+  font-size: 16px;
+  transition: background-color 0.10s ease, color 0.10s ease;
+  cursor: pointer;
 
 
-      &:hover{ 
-      background-color: #ee7987; 
-      color: rgb(255, 255, 255);
-      
-    
-    }
+  &:hover {
+    background-color: #ee7987;
+    color: rgb(255, 255, 255);
+
 
   }
 
-  .textcadast{
-    font-family: monospace !important;
-    color: #f3acb4 ;
-    transition: background-color 0.10s ease, color 0.10s ease;
+}
 
-    &:hover{ 
-      
-      color: rgb(255, 255, 255);
-    
-    }
+.textcadast {
+  font-family: monospace !important;
+  color: #f3acb4;
+  transition: background-color 0.10s ease, color 0.10s ease;
+
+  &:hover {
+
+    color: rgb(255, 255, 255);
+
   }
+}
 
 
 
 .menuopcoes {
   display: flex;
   justify-content: center;
-  
+
 }
 
 .navega {
@@ -78,13 +78,13 @@
   padding-top: 10px;
 
 
-  &:hover{
+  &:hover {
     color: #ffffff;
     background-color: #ee7987;
     transition: all 800ms;
-    
+
   }
-  
+
 }
 
 
@@ -100,6 +100,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -140,7 +141,7 @@
 
 
 
-.coluna p{
+.coluna p {
   font-size: 16px !important;
   font-family: monospace !important;
   margin-bottom: 0%;
@@ -191,7 +192,9 @@
 }
 
 
-.produtinhos, .produtinhoss, .produtinhosss {
+.produtinhos,
+.produtinhoss,
+.produtinhosss {
   background-color: #F1DFCD !important;
   border: 2px solid #E78F99 !important;
   border-radius: 200px !important;
@@ -204,10 +207,10 @@
   justify-content: center;
   align-items: center;
   margin-right: 20px;
-  
+
 }
 
-.chamando{
+.chamando {
   padding: 40px;
 }
 
@@ -215,9 +218,9 @@
   background-image: url("../public/papeldatelainicial.png");
   background-repeat: repeat;
   background-size: cover;
-  background-position: center; 
+  background-position: center;
 
-  image-rendering: crisp-edges; 
+  image-rendering: crisp-edges;
   image-rendering: pixelated;
   animation: fadeIn s ease-in-out forwards;
 }
@@ -226,6 +229,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -252,6 +256,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -280,7 +285,8 @@
   padding: 50px;
 }
 
-.planomensall, .planoanual {
+.planomensall,
+.planoanual {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -298,7 +304,7 @@
 
 
 
-.planos{
+.planos {
   padding-bottom: 15px;
 }
 
@@ -307,13 +313,13 @@
   margin-bottom: 30px !important;
 }
 
-.rodapeFixo{
+.rodapeFixo {
   background-color: #ebadb4;
   top: 0;
   left: 0;
   display: flex;
   justify-content: space-between;
-  width: 100%; 
+  width: 100%;
   align-items: start;
   padding-bottom: 5px;
   z-index: 1000;
@@ -326,17 +332,18 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-.redesSociais{
+.redesSociais {
   display: flex;
   margin-left: 25px;
 }
 
-.instagram{
+.instagram {
   background-image: url("../public/instagram.png");
   height: 30px;
   width: 30px;
@@ -345,14 +352,14 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin-right: 20px;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 .instagram:hover {
-  transform: rotate(360deg); 
+  transform: rotate(360deg);
 }
 
-.githubWeb{
+.githubWeb {
   background-image: url("../public/github.png");
   height: 30px;
   width: 30px;
@@ -361,14 +368,14 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin-right: 20px;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 .githubWeb:hover {
-  transform: rotate(30deg); 
+  transform: rotate(30deg);
 }
 
-.githubApi{
+.githubApi {
   background-image: url("../public/github.png");
   height: 30px;
   width: 30px;
@@ -376,14 +383,14 @@
   margin-top: 8px;
   background-size: cover;
   background-repeat: no-repeat;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 .githubApi:hover {
-  transform: rotate(180deg); 
+  transform: rotate(180deg);
 }
 
-.paragrafo{
+.paragrafo {
   font-family: cursive;
   color: #ffffff;
   margin-top: 15px;
@@ -399,11 +406,11 @@
   margin-right: 25px;
   padding: 5px;
   border: none;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 .devsSite:hover {
-  transform: rotate(30deg); 
+  transform: rotate(30deg);
   background-color: #fcfbfb !important;
   color: #E78F99 !important;
 }
@@ -412,22 +419,22 @@
 
 
 
-  /******************* Corpo da Tela de Cadastro *****************/
+/******************* Corpo da Tela de Cadastro *****************/
 
-.corpinhodocadastro{
+.corpinhodocadastro {
   background-color: #F1DFCD;
   background-image: url("../public/papeldatelainicial.png");
   background-repeat: repeat;
   background-size: cover;
-  background-position: center; 
-  image-rendering: crisp-edges; 
+  background-position: center;
+  image-rendering: crisp-edges;
   image-rendering: pixelated;
   animation: fadeIn s ease-in-out forwards;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100%; 
+  width: 100%;
   animation: fadeIn 1s ease-in-out forwards;
 }
 
@@ -435,13 +442,14 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
 .containerbranco {
-  text-align: center; 
+  text-align: center;
   background-color: #fff;
   padding: 70px;
   border-radius: 15px;
@@ -453,7 +461,7 @@
   font-size: 30px;
 }
 
-.containerbranco input{
+.containerbranco input {
   background-color: #d895a2 !important;
   color: #ffffff !important;
   font-size: 15px !important;
@@ -461,12 +469,12 @@
   border-radius: 10px !important;
   border: 2px solid #ffffff !important;
   margin-top: 0;
-  width: 100% !important; 
-  height: 40px;  
-  padding: 10px; 
+  width: 100% !important;
+  height: 40px;
+  padding: 10px;
 }
 
-.containerbranco p{
+.containerbranco p {
   margin-bottom: 0;
   margin-top: 20px;
   align-items: left;
@@ -480,7 +488,7 @@
   border: none;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background-color: #f8e2e5 !important;
     color: #E78F99 !important;
   }
@@ -494,7 +502,7 @@
 
 }
 
-.botaoentrar{
+.botaoentrar {
   margin-right: 50px !important;
 }
 
@@ -509,297 +517,345 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 
 
-  /******************* Corpo da Home *****************/
+/******************* Corpo da Home *****************/
 
 
-  .homeUsuario {
-    background-color: #F1DFCD;
-    background-image: url("../public/papeldatelainicial.png");
-    background-repeat: repeat;
-    background-size: cover;
-    background-position: center; 
-    image-rendering: crisp-edges; 
-    image-rendering: pixelated;
-    animation: fadeIn s ease-in-out forwards;
-    display: block !important;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%; 
-    animation: fadeIn 1s ease-in-out forwards;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+.homeUsuario {
+  background-color: #F1DFCD;
+  background-image: url("../public/papeldatelainicial.png");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  animation: fadeIn s ease-in-out forwards;
+  display: block !important;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out forwards;
+}
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 
-  .rodapedoperfil {
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    padding: 8px;
-    width: 100% ;
-    background-color: #ebadb4;
-  }
-  
-
-  .gradescolun{
-    width: 100% !important;
+  to {
+    opacity: 1;
   }
 
-  
-  
+}
 
-  .botoesderota{
-    width: 100%;
-    display: block !important;
-    align-items: center !important;
-    padding: 50px;
 
-  }
+.gradescolun {
+  width: 100% !important;
+}
 
-  .botoesderota button {
-    display: block !important;
-    align-items: center !important;
-    margin: 10px auto;
-    margin-top: 35px !important;
-    border-radius: 24px;
-    border: none;
-    padding: 30px;
-    background-color: #fffcfa;
-    color: #f3acb4;
-    font-size: 30px;
-    transition: background-color 0.10s ease, color 0.10s ease, transform 0.3s ease-out;
-    cursor: pointer;
-    font-family: monospace !important;
+
+
+
+.botoesderota {
+  width: 100%;
+  display: block !important;
+  align-items: center !important;
+  padding: 50px;
+
+}
+
+.botoesderota button {
+  display: block !important;
+  align-items: center !important;
+  margin: 10px auto;
+  margin-top: 35px !important;
+  border-radius: 24px;
+  border: none;
+  padding: 30px;
+  background-color: #fffcfa;
+  color: #f3acb4;
+  font-size: 30px;
+  transition: background-color 0.10s ease, color 0.10s ease, transform 0.3s ease-out;
+  cursor: pointer;
+  font-family: monospace !important;
 }
 
 .botoesderota button:hover {
-    background-color: #ee7987;
-    color: rgb(255, 255, 255);
-    transform: translateY(-20px); /* Move o botão 10px para cima (efeito de pulo) */
+  background-color: #ee7987;
+  color: rgb(255, 255, 255);
+  transform: translateY(-20px);
+  /* Move o botão 10px para cima (efeito de pulo) */
 }
 
-  .listaPedidos {
-    padding: 20px;
-    background-color: #fff5f7; /* Fundo suave para a tabela */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin-right: 30px;
-    margin-top: 30px;
+.listaPedidos {
+  padding: 20px;
+  background-color: #fff5f7;
+  /* Fundo suave para a tabela */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+
+
+.listaPedidos .selectdata {
+  margin-bottom: 20px;
+  padding: 8px;
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid #fc5165;
+}
+
+.selectdata:active {
+  background-color: #d895a2;
+  color: #f8e2e5;
+  border: 1px solid #fc5165;
+
+}
+
+.listaPedidos .ui.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.listaPedidos .ui.table th,
+.listaPedidos .ui.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #f3acb4;
+}
+
+.listaPedidos .ui.table th {
+  background-color: #f3acb4;
+  color: white;
+}
+
+.listaPedidos .ui.table tbody tr:hover {
+  background-color: #fce4ec;
+}
+
+.listaPedidos .ui.table .ui.button {
+  background-color: transparent;
+  color: #f3acb4;
+  border: 1px solid #f3acb4;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.listaPedidos .ui.table .ui.button:hover {
+  background-color: #f3acb4;
+  color: white;
+}
+
+.linkPedidos {
+  color: #fc5165;
+}
+
+.linkPedidos:active {
+  color: #e78f99;
+}
+
+.rodapedoperfil {
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: start;
+  z-index: 1000;
+  padding: 8px;
+  width: 100%;
+  background-color: #ebadb4;
+}
+
+.voltar {
+  background-image: url("../public/setas-para-a-esquerda.png");
+  height: 30px;
+  width: 30px;
+  margin: 0 auto;
+  margin-top: 8px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+  margin-left: 20px;
+}
+
+.voltar:hover {
+  transform: rotate(-360deg);
+}
+
+.perfil {
+  background-image: url("../public/de-costura.png");
+  height: 30px;
+  width: 30px;
+  margin: 0 auto;
+  margin-top: 8px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+  margin-left: 20px;
+}
+
+.perfil:hover {
+  transform: rotate(-30deg);
+}
+
+
+
+
+
+/******************* Corpo da tela de cadastro de materiais *****************/
+
+
+
+
+/******************* Corpo da Tela de Listagem de Cliente *****************/
+
+.containerPrincipalCliente {
+
+  background-color: #F1DFCD;
+  background-image: url("../public/papeldatelainicial.png");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  animation: fadeIn s ease-in-out forwards;
+  display: block !important;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/******************* Corpo da Tela de Pedidos *****************/
+
+.corpinhodapaginape {
+  background-color: #F1DFCD;
+  background-image: url("../public/papeldatelainicial.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.containerbrancope h1 {
+  font-family: monospace !important;
+  color: #E78F99;
+}
+
+.containerbrancope {
+  text-align: center;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
+}
+
+.containerbrancope h2 {
+  font-family: monospace !important;
+  color: #E78F99;
+  font-size: 30px;
+}
+
+.containerbrancope input {
+  background-color: #d895a2 !important;
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-family: monospace !important;
+  border-radius: 10px !important;
+  border: 2px solid #ffffff !important;
+  margin-top: 0;
+  width: 100% !important;
+  height: 40px;
+  padding: 10px;
+}
+
+.containerbrancope p {
+  margin-bottom: 0;
+  margin-top: 20px;
+  align-items: left;
+  font-family: monospace;
+  color: #d895a2;
+}
+
+.containerbrancope button {
+  background-color: #E78F99 !important;
+  color: #fff !important;
+  border: none;
+  cursor: pointer;
+  justify-content: space-around !important;
+  margin-right: 25px !important;
+  padding: 15px !important;
+
+  &:hover {
+    background-color: #f8e2e5 !important;
+    color: #E78F99 !important;
   }
 
+}
 
-  
-  .listaPedidos .selectdata {
-    margin-bottom: 20px;
-    padding: 8px;
-    border-radius: 10px;
-    padding: 5px;
-    border: 1px solid #fc5165; 
-  }
+.quantidade {
+  display: flex;
+  margin-top: 15px;
+}
 
-  .selectdata:active{
-    background-color: #d895a2;
-    color: #f8e2e5;
-    border: 1px solid #fc5165;
+.botaoConf {
+  border-radius: 20px !important;
+}
 
-  }
-  
-  .listaPedidos .ui.table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .listaPedidos .ui.table th, .listaPedidos .ui.table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #f3acb4; 
-  }
-  
-  .listaPedidos .ui.table th {
-    background-color: #f3acb4; 
-    color: white;
-  }
-  
-  .listaPedidos .ui.table tbody tr:hover {
-    background-color: #fce4ec;
-  }
-  
-  .listaPedidos .ui.table .ui.button {
-    background-color: transparent;
-    color: #f3acb4;
-    border: 1px solid #f3acb4;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .listaPedidos .ui.table .ui.button:hover {
-    background-color: #f3acb4;
-    color: white;
-  }
+.inputquant {
+  margin-right: 20px !important;
+}
 
-  .linkPedidos{
-    color: #fc5165;
-  }
+/******************* Corpo da Tela de Materiais *****************/
 
-  .linkPedidos:active{
-    color: #e78f99;
-  }
-  
+.corpinhodapaginama {
+  background-color: #F1DFCD;
+  background-image: url("../public/papeldatelainicial.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/******************* Home, Form de Data *****************/
 
 
-
-
-  /******************* Corpo da tela de cadastro de materiais *****************/
-
-
-
-
-    /******************* Corpo da Tela de Listagem de Cliente *****************/
-
-    .containerPrincipalCliente {
-
-      background-color: #F1DFCD;
-      background-image: url("../public/papeldatelainicial.png");
-      background-repeat: repeat;
-      background-size: cover;
-      background-position: center; 
-      image-rendering: crisp-edges; 
-      image-rendering: pixelated;
-      animation: fadeIn s ease-in-out forwards;
-      display: block !important;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100%; 
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-
-    /******************* Corpo da Tela de Pedidos *****************/
-
-    .corpinhodapaginape {
-      background-color: #F1DFCD;
-      background-image: url("../public/papeldatelainicial.png");
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      justify-content: center;
-      align-items: center;
-      width: 100%; 
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-
-    .containerbrancope h1 {
-      font-family: monospace !important;
-      color: #E78F99; 
-    }
-
-    .containerbrancope {
-      text-align: center; 
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 15px;
-      margin-top: 25px !important;
-      margin-bottom: 25px !important;
-    }
-    
-    .containerbrancope h2 {
-      font-family: monospace !important;
-      color: #E78F99;
-      font-size: 30px;
-    }
-    
-    .containerbrancope input{
-      background-color: #d895a2 !important;
-      color: #ffffff !important;
-      font-size: 15px !important;
-      font-family: monospace !important;
-      border-radius: 10px !important;
-      border: 2px solid #ffffff !important;
-      margin-top: 0;
-      width: 100% !important; 
-      height: 40px;  
-      padding: 10px; 
-    }
-    
-    .containerbrancope p{
-      margin-bottom: 0;
-      margin-top: 20px;
-      align-items: left;
-      font-family: monospace;
-      color: #d895a2;
-    }
-    
-    .containerbrancope button {
-      background-color: #E78F99 !important;
-      color: #fff !important;
-      border: none;
-      cursor: pointer;
-      justify-content: space-around !important;
-      margin-right: 25px !important;
-      padding: 15px !important;
-    
-      &:hover{
-        background-color: #f8e2e5 !important;
-        color: #E78F99 !important;
-      }
-    
-    }
-
-    .quantidade{
-      display: flex;
-      margin-top: 15px;
-    }
-
-    .botaoConf{
-      border-radius: 20px !important;
-    }
-
-    .inputquant {
-      margin-right: 20px !important;
-    }
-
-        /******************* Corpo da Tela de Materiais *****************/
-
-        .corpinhodapaginama {
-          background-color: #F1DFCD;
-          background-image: url("../public/papeldatelainicial.png");
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          width: 100%; 
-          animation: fadeIn 1s ease-in-out forwards;
-        }
-
-            /******************* Home, Form de Data *****************/
-
-            
-.selectdata{
- padding: px !important;
- background-color: #d895a200;
- border-radius: 0%;
- border: #d895a200;
- color: #E78F99;
- font-family: cursive;
- font-size: 20px;
- margin: 20px;
+.selectdata {
+  padding: px !important;
+  background-color: #d895a200;
+  border-radius: 0%;
+  border: #d895a200;
+  color: #E78F99;
+  font-family: cursive;
+  font-size: 20px;
+  margin: 20px;
 }
 
 /*.listaPedidos{
@@ -813,3 +869,22 @@
 .listaPedidos table {
   background-color: #fffcfa00;
 } */
+
+/******************* Corpo da Tela de Edição *****************/
+
+.excluir {
+  background-image: url("../public/lixeira.png");
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+  margin-top: 8px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+  margin-left: 20px;
+}
+
+.excluir:hover {
+  transform: rotate(-30deg);
+}
