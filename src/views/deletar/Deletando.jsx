@@ -70,7 +70,7 @@ export default function Delentando() {
                 <Input
                  //type="password"
                   fluid
-                  placeholder='Insira o Token'
+                  placeholder='Insira o Código:'
                   value = {token}
                   onChange={e => setToken(e.target.value)}
                   
