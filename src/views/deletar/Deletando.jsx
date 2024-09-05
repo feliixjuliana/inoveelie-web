@@ -51,7 +51,7 @@ export default function Delentando() {
           <div className="containerbranco">
     
     
-            <h2>  Senha Nova </h2>
+            <h2> Exclusão de Conta </h2>
     
             <div className="inputcontainers">
             <div className="input-container">
