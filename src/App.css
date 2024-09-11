@@ -1,5 +1,8 @@
 /**************** Tela Home ******************/
+main, body{
+  background-color: #ebadb4;
 
+}
 .corpinhodapagina {
   background-color: #F1DFCD;
   display: flex;
@@ -111,7 +114,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 100px;
+  margin-right: 250px;
 }
 
 .coluna {
@@ -557,19 +560,11 @@
 
 }
 
-
-.gradescolun {
-  width: 100% !important;
-}
-
-
-
-
 .botoesderota {
   width: 100%;
   display: block !important;
   align-items: center !important;
-  padding: 50px;
+  padding: 100px;
 
 }
 
@@ -580,13 +575,14 @@
   margin-top: 35px !important;
   border-radius: 24px;
   border: none;
-  padding: 30px;
+  padding: 45px;
   background-color: #fffcfa;
   color: #f3acb4;
   font-size: 30px;
   transition: background-color 0.10s ease, color 0.10s ease, transform 0.3s ease-out;
   cursor: pointer;
   font-family: monospace !important;
+  font-size: 32px;
 }
 
 .botoesderota button:hover {

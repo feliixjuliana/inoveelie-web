@@ -77,11 +77,11 @@ export default function SenhaNova() {
               </div>
 
               <div className="input-container">
-                <p>Token</p>
+                <p>Código Informado:</p>
                 <Input
                  //type="password"
                   fluid
-                  placeholder='Insira o Token'
+                  placeholder='Insira o código'
                   value = {token}
                   onChange={e => setToken(e.target.value)}
                   

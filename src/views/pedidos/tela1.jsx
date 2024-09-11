@@ -275,13 +275,7 @@ export default function Home() {
                 </div>
 
                 <div className="botoesdenaveg">
-                    <Button className="botaoentrar"
-                        onClick={enviarComprovante}
 
-                    >
-                        Comprovante
-
-                    </Button> 
                     
                    
                 </div>

@@ -105,15 +105,6 @@ export default function Home() {
                             {loading && <Loader />}
 
                             <div className="areadosbotoeslogin">
-                               
-                                <GoogleLogin
-                                    onSuccess={credentialResponse => {
-                                        console.log(credentialResponse);
-                                    }}
-                                    onError={() => {
-                                        console.log('Login Failed');
-                                    }}
-                                /> 
                                 <Button
                                     onClick={() => entrar()}
                                 > Entrar</Button>

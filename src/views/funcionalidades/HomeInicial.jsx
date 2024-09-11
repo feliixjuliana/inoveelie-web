@@ -33,6 +33,7 @@ export default function HomeInicial() {
 
     function carregarStatus() {
         setStatusOptions([
+            { key: 'Concluido', value: 'Concluido', text: 'Concluido' },
             { key: 'Em andamento', value: 'Em andamento', text: 'Em andamento' },
             { key: 'Em aberto', value: 'Em aberto', text: 'Em aberto' },
             { key: 'Cancelado', value: 'Cancelado', text: 'Cancelado' }
