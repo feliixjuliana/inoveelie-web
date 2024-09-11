@@ -259,9 +259,7 @@ export default function Home() {
                     </Link>
 
                     <Link to={'/Form-P-Materiais'}>
-                        <Button className="botaovoltar"
-                        onClick={() => salvar()}
-                        >
+                        <Button className="botaovoltar">
                         
                             Salvar Materiais
                         </Button>
