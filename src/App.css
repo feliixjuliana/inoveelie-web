@@ -249,7 +249,6 @@
   border-radius: 20px;
   animation: fadeOut 1s ease-in-out forwards;
   z-index: 1;
-  margin-bottom: 40px;
 }
 
 @keyframes fadeOut {
@@ -325,7 +324,6 @@
   z-index: 1000;
   animation: fadeOut 1s ease-in-out forwards;
   z-index: 1;
-  margin-bottom: 40px;
 }
 
 @keyframes fadeOut {
