@@ -4,125 +4,112 @@ import { Link } from "react-router-dom";
 import { Button, Container, Divider, Icon, Table, Modal, Header } from 'semantic-ui-react';
 
 export default function ListCliente() {
-
-    const [lista, setLista] = useState([]);
+    const [clientes, setClientes] = useState([]);
     const [openModal, setOpenModal] = useState(false);
     const [idRemover, setIdRemover] = useState();
 
-
     useEffect(() => {
-        carregarLista();
-    }, [])
+        carregarClientesUnicos();
+    }, []);
 
-    function carregarLista() {
-
-        axios.get("http://localhost:8080/api/cliente")
+    function carregarClientesUnicos() {
+        axios.get("http://localhost:8080/api/pedido")
             .then((response) => {
-                setLista(response.data)
+                const pedidos = response.data;
+                // Extrair clientes únicos dos pedidos
+                const clientesUnicos = [...new Set(pedidos.map(pedido => ({
+                    id: pedido.idCliente,
+                    nomeCliente: pedido.nomeCliente,
+                    numeroCliente: pedido.numeroCliente
+                })))];
+
+                setClientes(clientesUnicos);
             })
+            .catch((error) => {
+                console.error('Erro ao carregar pedidos', error);
+            });
     }
 
     function confirmaRemover(id) {
-        setOpenModal(true)
-        setIdRemover(id)
+        setOpenModal(true);
+        setIdRemover(id);
     }
 
     async function remover() {
-
         await axios.delete('http://localhost:8080/api/cliente/' + idRemover)
-            .then((response) => {
-
-                console.log('Cliente removido com sucesso.')
-
-                axios.get("http://localhost:8080/api/cliente")
-                    .then((response) => {
-                        setLista(response.data)
-                    })
+            .then(() => {
+                console.log('Cliente removido com sucesso.');
+                carregarClientesUnicos();
             })
             .catch((error) => {
-                console.log('Erro ao remover um cliente.')
-            })
-        setOpenModal(false)
+                console.error('Erro ao remover cliente.', error);
+            });
+        setOpenModal(false);
     }
-
 
     return (
         <div className='containerPrincipalCliente'>
-
-            <div>
-
-                <Container textAlign='justified' >
-
-
-                    <Divider />
-
-                    <div>
+            <Container textAlign='justified'>
+                <Divider />
+                <div>
                     <Button
-                            label='Voltar'
-                            circular
-                            color='pink'
-                            floated='left'
-                            as={Link}
-                            to='/home-usuario'
-                        />
-                        <Button
-                            label='Cadastre um Novo Cliente'
-                            circular
-                            color='pink'
-                            icon='clipboard outline'
-                            floated='right'
-                            as={Link}
-                            to='/form-cliente'
-                        />
-                        <br /><br /><br />
-
-                        <Table color='pink' sortable celled>
-
-                            <Table.Header>
-                                <Table.Row>
-                                    <Table.HeaderCell>Nome</Table.HeaderCell>
-                                    <Table.HeaderCell>Telefone</Table.HeaderCell>
-                                    <Table.HeaderCell textAlign='center'>Ações</Table.HeaderCell>
+                        label='Voltar'
+                        circular
+                        color='pink'
+                        floated='left'
+                        as={Link}
+                        to='/home-usuario'
+                    />
+                    <Button
+                        label='Cadastre um Novo Cliente'
+                        circular
+                        color='pink'
+                        icon='clipboard outline'
+                        floated='right'
+                        as={Link}
+                        to='/form-cliente'
+                    />
+                    <br /><br /><br />
+                    <Table color='pink' sortable celled>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell>Nome</Table.HeaderCell>
+                                <Table.HeaderCell>Telefone</Table.HeaderCell>
+                                <Table.HeaderCell textAlign='center'>Ações</Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+                        <Table.Body>
+                            {clientes.map(cliente => (
+                                <Table.Row key={cliente.id}>
+                                    <Table.Cell>{cliente.nomeCliente}</Table.Cell>
+                                    <Table.Cell>{cliente.numeroCliente}</Table.Cell>
+                                    <Table.Cell textAlign='center'>
+                                        <Button
+                                            inverted
+                                            circular
+                                            color='green'
+                                            title='Clique aqui para editar os dados deste cliente'
+                                            icon>
+                                            <Link to="/form-cliente" state={{ id: cliente.id }} style={{ color: 'green' }}>
+                                                <Icon name='edit' />
+                                            </Link>
+                                        </Button> &nbsp;
+                                        <Button
+                                            inverted
+                                            circular
+                                            color='red'
+                                            title='Clique aqui para remover este cliente'
+                                            icon
+                                            onClick={() => confirmaRemover(cliente.id)}>
+                                            <Icon name='trash' />
+                                        </Button>
+                                    </Table.Cell>
                                 </Table.Row>
-                            </Table.Header>
-
-                            <Table.Body>
-
-                                {lista.map(cliente => (
-
-                                    <Table.Row key={cliente.id}>
-                                        <Table.Cell>{cliente.nomeCliente}</Table.Cell>
-                                        <Table.Cell>{cliente.numeroCliente}</Table.Cell>
-                                        <Table.Cell textAlign='center'>
-
-                                            <Button
-                                                inverted
-                                                circular
-                                                color='green'
-                                                title='Clique aqui para editar os dados deste cliente'
-                                                icon>
-                                                <Link to="/form-cliente" state={{ id: cliente.id }} style={{ color: 'green' }}> <Icon name='edit' /> </Link>
-                                            </Button> &nbsp;
-
-                                            <Button
-                                                inverted
-                                                circular
-                                                color='red'
-                                                title='Clique aqui para remover este cliente'
-                                                icon
-                                                onClick={e => confirmaRemover(cliente.id)}>
-                                                <Icon name='trash' />
-                                            </Button>
-
-                                        </Table.Cell>
-                                    </Table.Row>
-                                ))}
-
-                            </Table.Body>
-                        </Table>
-                    </div>
-                </Container>
-            </div>
+                            ))}
+                        </Table.Body>
+                    </Table>
+                </div>
+            </Container>
             <Modal
                 basic
                 onClose={() => setOpenModal(false)}
@@ -142,7 +129,6 @@ export default function ListCliente() {
                     </Button>
                 </Modal.Actions>
             </Modal>
-
         </div>
-    )
+    );
 }
