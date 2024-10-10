@@ -1,8 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Projeto Inove Eliê
+# Projeto Inove Eliê
 
   Veja nosso [Back-End](https://github.com/Scajk/inoveelie-api-cejms)!!
 
@@ -14,4 +10,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 [![React](https://img.shields.io/badge/React-blue.svg?logo=react&logoColor=%2361DAFB)](#)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+## Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
